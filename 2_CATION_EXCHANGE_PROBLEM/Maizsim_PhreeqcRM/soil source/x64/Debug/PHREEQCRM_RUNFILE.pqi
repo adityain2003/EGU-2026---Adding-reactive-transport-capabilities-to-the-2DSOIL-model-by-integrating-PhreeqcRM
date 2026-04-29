@@ -1,0 +1,139 @@
+# CUSTOM DATABASE AND INPUT FILE FOR 2DSOIl-PHREEQCRM INTEGRATION
+# AUTHOR: ADITYA KAPOOR, NWC-UNL and USDA (ARS-REE)
+
+# NOTES: Nitrate, Nitrite, Nitrous, Ammonium and 
+
+ SOLUTION_MASTER_SPECIES
+ Nitrate		Nitrate-		0	Nitrate		62.0
+ Nitrite		Nitrite-		0	Nitrite		46.0
+ Nitrous		Nitrous			0	Nitrous		44.0
+ Ammonium		Ammonium+		0	Ammonium	18.01
+ Dissolvedo		Dissolvedo		0	Dissolvedo	32.0
+ [N]			[N]O3-			0	[N]		14.01		# [N] DUPLICATE FAMILY AS NITROGEN
+ [N](+5)		[N]O3-			0	[N]		
+ [N](+3)		[N]O2-			0	[N]	
+ [N](0)			[N]2			0	[N]	
+ [N](-3)		[N]H4+			0	[N]		14.01
+ 
+
+ SOLUTION_SPECIES
+ 	Nitrate-    =   Nitrate-
+		log_k	0.0
+ 	Nitrite-    =   Nitrite-
+		log_k	0.0
+ 	Nitrous    =   Nitrous
+		log_k	0.0
+ 	Ammonium+    =   Ammonium+
+		log_k	0.0
+ 	Dissolvedo    =   Dissolvedo
+		log_k	0.0
+ 	[N]O3-    	=   [N]O3-
+		log_k	0.0
+	[N]O3-  +  2H+  +  2e- 	=   [N]O2- + H2O
+		-log_k  0.0	#-log_k  28.57
+	2[N]O3-	+  12H+  +  10e-  =  [N]2	+ 6H2O
+		-log_k  0.0	#-log_k  149.94
+	[N]O3-	+  10H+  +  8e-  =  [N]H4+	+ 3H2O
+		-log_k  0.0	#-log_k  90.507
+	[N]H4+	=	[N]H3	+  H+
+		-log_k	0.0	#-log_k	-9.252
+END
+ 
+ SOLUTION   0
+ units   mmol/l
+ density 1
+# pe	12 charge
+ redox 	N(+5)/N(+3)
+ Ammonium  1
+ #[N](0) 1
+ #[N](+5) 20
+ #[N](+3) 1
+ #[N](0) 1
+ #[N](-3) 1
+ N(+5)  1
+ #N(+3)  1
+ #N(0)	1
+ O(0)	0.5
+ #Ca	0
+ 
+ USE SOLUTION 0
+ SAVE SOLUTION 0
+ END
+ KINETICS 0
+	Nreaction
+	-formula NO3- -2 NO2- +1 Nitrous +1 # DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )
+	Odecay
+	-formula O2 -1 
+ END
+  
+ RATES
+	Nreaction
+	-start
+	10 NITRATE_CONC = MOL("NO3-")
+	20 REDOX_POTENTIAL = S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)	# IN mV
+	30 if (NITRATE_CONC>=1.0e-30 AND REDOX_POTENTIAL <1000) Then rate = 1.0e-8 ELSE rate = 0.0		# MOL IS MOLALITY (= MOLARITY IF DENSITY =1) OF A SPECIES IN MOLES/Kgw
+	40 moles = 1*rate*TIME*SOLN_VOL
+	50 SAVE moles
+	-end
+
+	Odecay
+	-start
+	 5 K_OXYGEN = 4.0e-6	#4.0e-6
+	10 O2_CONC = MOL("O2")
+	20 REDOX_POTENTIAL = S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)	# IN mV
+	30 if (O2_CONC>=1.0e-30) Then rate = ((K_OXYGEN)*(MOL("O2"))) ELSE rate = 0.0		# MOL IS MOLALITY (= MOLARITY IF DENSITY =1) OF A SPECIES IN MOLES/Kgw
+	40 moles = 1*rate*TIME*SOLN_VOL
+	50 SAVE moles
+	-end
+
+ SOLUTION 1-600
+ density 1
+ #units   mmol/l
+ #[N]O3-  1
+ #[N](+5) 1
+ #[N](+3) 1
+ #pe	14 charge
+ #Amm	20.0 charge
+ #N(+5)  20.0
+ #O(0)	0.5
+ #Amm	1.0e-5 charge
+ USE SOLUTION 0
+ END
+
+ KINETICS 1-600
+	Nreaction
+	-formula NO3- -2 NO2- +1 Nitrous 1 		# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )
+	Odecay
+	-formula O2 -1  
+	USER_PUNCH
+	10 PRINT "KIN(NO3-):       ", KIN("NO3-")
+ END
+
+ SELECTED_OUTPUT
+     -active     true
+     -reset     false
+     -file   PHREEQCRM_SELECTED_OUTPUT.sel
+     -pH     true
+     -pe     true
+     -charge_balance     true
+     -percent_error     true
+#     -SOLN_VOL     true
+     -water     true
+     -totals	O(0)
+     -kinetic_reactants   Nreaction Odecay
+
+USER_PUNCH
+-headings Eh
+-start
+10 REM convert to Eh
+20 PUNCH S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)
+ -end
+
+USER_PRINT
+-start
+10 PRINT "Solution defined pe:         ", pe
+-end
+
+ KNOBS
+ -iterations 2000
+ -tolerance 1e-20

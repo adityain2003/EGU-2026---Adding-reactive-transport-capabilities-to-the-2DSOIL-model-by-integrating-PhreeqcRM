@@ -1,0 +1,129 @@
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	 SOLUTION_MASTER_SPECIES
+	 [A]			[A]			0	[A]		1
+	 SOLUTION_SPECIES
+	 	[A]    	    =   [A]
+			log_k	0.0	
+	END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+	 SOLUTION   0
+	 units   mol/l
+	 density 1
+	 [A] 00.0
+	 O(0)	0.5
+	 USE SOLUTION 0
+	 SAVE SOLUTION 0
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 0.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	O(0)              5.040e-01   5.040e-01
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99746
+                               Volume (L)  =   1.01063
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.996
+                 Ionic strength (mol/kgw)  =   1.004e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   7.825e-10
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -7.825e-10
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.39
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.601025e+01
+
+---------------------------------Redox couples---------------------------------
+
+	Redox couple             pe  Eh (volts)
+
+	O(-2)/O(0)          14.3713      0.8501
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.008e-07   1.008e-07    -6.996    -6.997    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.957e-01     1.744    -0.002     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          5.040e-01
+   O2              2.520e-01   2.520e-01    -0.599    -0.599     0.000     30.40
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)             2.29     -0.60   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 3.
+------------------------------------
+
+	 KINETICS 0
+		DECAY
+		formula [A] -1   				# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )  
+	 END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 4.
+------------------------------------
+
+	 RATES
+		DECAY
+		start
+		10 A_CONC = MOL("[A]")
+		20 REDOX_POTENTIAL = S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)	# IN mV
+		30 if (MOL("[A]")>1e-10) Then rate = 1.0*MOL("[A]")*3*1e-6-1.0*1*1e-6 	# FIRST ORDER DECAY AND ZERO ORDER PRODUCTION
+		40 moles = 1*rate*TIME*SOLN_VOL
+		50 SAVE moles
+		end  
+	 SOLUTION 1-2185
+	 units   mol/l
+	 density 1
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality 

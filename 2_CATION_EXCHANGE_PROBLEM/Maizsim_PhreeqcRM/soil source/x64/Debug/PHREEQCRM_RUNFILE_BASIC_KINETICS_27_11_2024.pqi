@@ -1,0 +1,57 @@
+
+ SOLUTION_MASTER_SPECIES
+ Nitrate		Nitrate-		0	Nitrate		62.0
+ Nitrite		Nitrite-		0	Nitrite		46.0
+ Nitrous		Nitrous			0	Nitrous		44.0
+
+ SOLUTION_SPECIES
+ 	Nitrate-   =   Nitrate-
+		log_k	0
+ 	Nitrite-   =   Nitrite-
+		log_k	0
+ 	Nitrous    =   Nitrous
+		log_k	0
+ 
+ SOLUTION   0
+ units   mg/l
+ Amm	1.0e-5 charge
+ Nitrate 1.0e-5
+ #Nitrite 1.0e-5
+ SAVE SOLUTION 0
+ END
+  
+ RATES
+	Nreaction
+	-start
+	10 if (MOL("Nitrate-")>2.0e-5) Then rate = 2.16*10^(-3) ELSE rate = 0.0		# MOL IS MOLALITY OF A SPECIES IN MOLES/Kgw
+	20 moles = 1*rate*TIME*SOLN_VOL
+	30 SAVE moles
+	-end
+
+ SOLUTION 1-600
+ units   mg/l
+ Amm	10 charge
+ Nitrate 10.0
+ Nitrite 0.0
+ USE SOLUTION 0
+ END
+ KINETICS 1-600
+	Nreaction
+	-formula Nitrate -1 Nitrite 1 O2 0.1 Nitrous 0.1		# PRODUCT - REACTANT
+	-m0 1
+	-step_divide 10
+ END
+
+ SELECTED_OUTPUT
+     -active     true
+     -reset     false
+     -file   PHREEQCRM_SELECTED_OUTPUT.sel
+     -pH     true
+     -pe     true
+     -charge_balance     true
+     -percent_error     true
+#     -SOLN_VOL     true
+     -water     true
+ KNOBS
+ -iterations 2000
+ -tolerance 1e-20

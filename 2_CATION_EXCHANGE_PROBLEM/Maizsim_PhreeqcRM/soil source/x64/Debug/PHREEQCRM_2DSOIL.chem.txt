@@ -1,0 +1,111 @@
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	 SOLUTION   0
+	 units   mol/l
+	 density 1
+	 pH	7.0	charge
+	 pe	12.5	O2(g)	-0.68
+	 Ca	0.0006
+	 Cl	0.0012
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 0.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	Ca                6.000e-04   6.000e-04
+	Cl                1.200e-03   1.200e-03
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   6.995      Charge balance
+                                       pe  =  13.632      Equilibrium with O2(g)
+      Specific Conductance (µS/cm,  25°C)  = 155
+                          Density (g/cm³)  =   0.99710
+                               Volume (L)  =   1.00298
+                        Viscosity (mPa s)  =   0.89067
+                        Activity of water  =   1.000
+                 Ionic strength (mol/kgw)  =   1.800e-03
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =  -3.082e-20
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =   5.595e-18
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =   0.00
+                               Iterations  =   4
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550675e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   H+              1.057e-07   1.012e-07    -6.976    -6.995    -0.019      0.00
+   OH-             1.049e-07   1.001e-07    -6.979    -7.000    -0.021     -4.10
+   H2O             5.551e+01   1.000e+00     1.744    -0.000     0.000     18.07
+Ca            6.000e-04
+   Ca+2            6.000e-04   4.984e-04    -3.222    -3.302    -0.081    -18.10
+   CaOH+           8.571e-10   8.176e-10    -9.067    -9.087    -0.020     (0)  
+Cl            1.200e-03
+   Cl-             1.200e-03   1.145e-03    -2.921    -2.941    -0.021     18.08
+   HCl             3.982e-11   3.989e-11   -10.400   -10.399     0.001     (0)  
+H(0)          0.000e+00
+   H2              0.000e+00   0.000e+00   -44.404   -44.404     0.000     28.61
+O(0)          5.351e-04
+   O2              2.675e-04   2.676e-04    -3.573    -3.572     0.000     30.40
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -41.30    -44.40   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)            -0.68     -3.57   -2.89  O2	 Pressure   0.2 atm, phi 1.000
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+	 SOLUTION   1-500
+	 units   mol/l
+	 density 1
+	 pH	7.0	charge
+	 pe	12.5	O2(g)	-0.68
+	 Na	0.001
+	 K	0.0002
+	 N(5)	0.0012
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	K                 2.000e-04   2.000e-04
+	N(5)              1.200e-03   1.200e-03
+	Na                1.000e-03   1.000e-03
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   6.997      Charge balance
+                                       pe  =  13.630      Equilibrium with O2(g)
+      Specific Conductance (µS/cm,  25°C)  = 145
+                          Density (g/c

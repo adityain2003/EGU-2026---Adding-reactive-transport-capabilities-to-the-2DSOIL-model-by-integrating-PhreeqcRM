@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\AdvectBMI_cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\AdvectBMI_cpp_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\Advect_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\Advect_cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\Gas_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\Gas_cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\SimpleAdvect_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\SimpleAdvect_cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\Species_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\Species_cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\TestAllMethods_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\TestAllMethods_cpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7C4C12BF-CC1F-3C09-B8F7-2F3E74E28824}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

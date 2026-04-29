@@ -1,0 +1,81 @@
+# CUSTOM DATABASE AND INPUT FILE FOR 2DSOIl-PHREEQCRM INTEGRATION
+# AUTHOR: ADITYA KAPOOR, NWC-UNL and USDA (ARS-REE)
+
+ SOLUTION_MASTER_SPECIES
+ [A]			[A]			0	[A]		1
+
+ SOLUTION_SPECIES
+ 	[A]    	    =   [A]
+		log_k	0.0	
+END
+ 
+ SOLUTION   0
+ units   mol/l
+ density 1
+ [A] 00.0
+ O(0)	0.5
+ USE SOLUTION 0
+ SAVE SOLUTION 0
+ END
+
+ KINETICS 0
+
+	DECAY
+	-formula [A] -1   				# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )  
+
+ END
+
+ RATES
+
+	DECAY
+	-start
+	10 A_CONC = MOL("[A]")
+	20 REDOX_POTENTIAL = S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)	# IN mV
+	30 if (MOL("[A]")>1e-10) Then rate = 0.0*MOL("[A]")*3*1e-6-0.0*1*1e-6 	# FIRST ORDER DECAY AND ZERO ORDER PRODUCTION
+	40 moles = 1*rate*TIME*SOLN_VOL
+	50 SAVE moles
+	-end  
+
+ SOLUTION 1-2185
+ units   mol/l
+ density 1
+ END
+
+ KINETICS 1-2185
+
+	DECAY
+	-formula [A] -1   				# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )  
+
+	USER_PUNCH
+	10 PRINT "KIN([A]):       ", KIN("[A]")
+
+ END
+
+ SELECTED_OUTPUT
+     -active     true
+     -reset     false
+     -file   PHREEQCRM_SELECTED_OUTPUT.sel
+     -pH     true
+     -pe     true
+     -charge_balance     true
+     -percent_error     true
+     -water     true
+     -totals	O [A] 
+     -molalities H2O [A] 
+     -kinetic_reactants   DECAY 
+
+USER_PUNCH
+-headings Eh
+-start
+10 REM convert to Eh
+20 PUNCH S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)
+ -end
+
+USER_PRINT
+-start
+10 PRINT "Solution defined pe:         ", pe
+-end
+
+ KNOBS
+ -iterations 2000
+ -tolerance 1e-20

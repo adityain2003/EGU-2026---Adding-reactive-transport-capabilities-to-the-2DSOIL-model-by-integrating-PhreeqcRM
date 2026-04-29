@@ -1,0 +1,21 @@
+ TITLE   NITRATE PROBLEM
+ SOLUTION   0
+ SAVE SOLUTION 0
+ END
+ SOLUTION 1-600
+ units   mg/l
+ Amm    1.0E-6  charge
+ N(5)    1.0E-6
+ USE SOLUTION 0
+ END
+ SELECTED_OUTPUT
+     -active     true
+     -reset     false
+     -file   PHREEQCRM_SELECTED_OUTPUT.sel
+     -pH     true
+     -pe     true
+     -charge_balance     true
+     -percent_error     true
+ KNOBS
+ -iterations 2000
+ -tolerance 1e-20

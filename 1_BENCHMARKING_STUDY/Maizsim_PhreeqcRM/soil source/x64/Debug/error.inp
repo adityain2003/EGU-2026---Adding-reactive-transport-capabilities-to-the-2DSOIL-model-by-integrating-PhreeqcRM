@@ -1,0 +1,79 @@
+SOLUTION_RAW                 6 Solution after simulation 1.
+  -temp                      24.9798412323
+  -pressure                  -0.0097213421465592
+  -potential                 0
+  -total_h                   0.042114942610545
+  -total_o                   0.021057471116892
+  -cb                        3.7676193042985e-10
+  -density                   0.9970430141654
+  -viscosity                 0.89252412236617
+  -viscos_0                  0.89002391829457
+  -totals
+    A                        0.022838101477483
+    Amm                      3.7937140695288e-10
+    H2O                      0
+    [B]                      0
+  -pH                        7
+  -pe                        4
+  -mu                        5.9786850059143e-07
+  -ah2o                      0.99999997957623
+  -mass_water                0.00037941389399805
+  -soln_vol                  1.0029657754478
+  -total_alkalinity          6.8784218585232e-09
+  -activities
+    Amm                      -9.4237951991329
+    E                        -4
+    H(0)                     -29.999999940213
+    O(0)                     -29.999999940213
+  -gammas
+  -species_map
+    18 5.6446191722193e-09
+    19 9.9139839622871e-07
+    126 9.9794670375908e-08
+    127 7.058522875411e-26
+    129 55.342084500827
+    233 0
+    234 1.0100813353003e-07
+  -log_gamma_map
+    18 5.9786850059143e-08
+    19 -0.00039411089155205
+    126 -0.00039346171029089
+    127 5.9786850059143e-08
+    129 0
+    233 5.9786850059143e-08
+    234 -0.00039401087811429
+  -log_molalities_map
+    18 -8.2470792397796
+    19 -6.0024656742917
+    126 -6.9996065382899
+    127 -25.150000059787
+    129 -30
+    233 -42.080000077527
+    234 -6.9943575402001
+KINETICS_RAW                 6 
+  # KINETICS_MODIFY candidate identifiers #
+  -step_divide               1
+  -rk                        3
+  -bad_step_max              500
+  -use_cvode                 0
+  -cvode_steps               100
+  -cvode_order               5
+  -component                 Areaction
+      # KINETICS_MODIFY candidate identifiers #
+      -tol                   1e-08
+      -m                     0.00038019499376609
+      -m0                    0.00038019499376609
+      -namecoef
+        A                    -1
+        [B]                  1
+      -d_params
+        
+      # KineticsComp workspace variables #
+      -moles                 0
+      -initial_moles         0.00038049652933011
+  -equal_increments           0
+  -count                     0
+  -steps             
+    1 
+  # KINETICS workspace variables #
+  -totals                    

@@ -1,0 +1,132 @@
+# =============================================================================
+# .gitignore for the EGU-2026 benchmarking repo
+#
+# Strategy: ignore by FILE EXTENSION (not whole build directories), so that
+# Debug/, Release/, x64/ etc. can ship their valuable contents (DLLs, EXEs,
+# LIBs, .dat / .pqi / .mod input files) while the regenerable build crud
+# (.obj, .pdb, .ilk, .tlog, .map, intermediate manifests) is excluded.
+# =============================================================================
+
+# ---- Compiler / linker intermediates ----
+*.obj
+*.pdb
+*.ipdb
+*.iobj
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.recipe
+*.intermediate.manifest
+*.map
+*.pch
+*.ipch
+*.tlb
+*.tli
+*.tlh
+*.res
+*.exp.bak
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.rsp
+*.dep
+*.aps
+# Note: *.dll, *.exe, *.lib, *.exp are KEPT (runtime artifacts requested)
+
+# ---- Visual Studio user-specific & cache files ----
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.e2e
+
+# ---- Visual Studio cache directory (wholesale; pure cache) ----
+.vs/
+
+# ---- CMake-generated artifacts (regenerable; keep CMakeLists.txt as input) ----
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+
+# ---- CMake target build dir (280 MB of pure object files) ----
+PhreeqcRM.dir/
+
+# ---- VS upgrade reports & old backups (regenerable) ----
+UpgradeLog*.htm
+UpgradeLog*.XML
+_UpgradeReport_Files/
+ServiceFabricBackup/
+*.rptproj.bak
+Backup/
+Backup1/
+Backup*/
+
+# ---- Build / test logs ----
+*.log
+BuildLog.htm
+
+# ---- TFS / source control scratch ----
+$tf/
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+
+# ---- Auto-generated C/C++ from IDLs etc. ----
+*_i.c
+*_p.c
+*_h.h
+*.sbr
+Generated\ Files/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ---- Office / OS junk ----
+~$*
+.DS_Store
+Thumbs.db
+desktop.ini
+*.bak
+
+# ---- Editors / IDEs (top-level catch) ----
+.idea/
+.vscode/
+*.opt
+*.plg
+*.vbw
+
+# ---- Large language / coverage / profiler outputs ----
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage*.info
+*.binlog

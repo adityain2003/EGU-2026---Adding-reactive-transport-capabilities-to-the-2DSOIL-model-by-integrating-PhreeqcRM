@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\TestRMdtor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\Tests\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7C4C12BF-CC1F-3C09-B8F7-2F3E74E28824}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

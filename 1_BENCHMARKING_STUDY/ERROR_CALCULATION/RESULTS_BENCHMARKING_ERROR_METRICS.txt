@@ -1,0 +1,53 @@
+========================================================================================
+Error metrics: PHREEQC-2DSOIL numerical vs. 1-D analytical solution
+Domain depth = 750 cm; metrics in concentration-ratio units (dimensionless)
+Days compared: 1, 2, 3 (DAY 0 omitted - identical zero initial condition)
+Simulated profile interpolated onto the 50 analytical depths per day.
+========================================================================================
+
+Per-case, per-day metrics:
+  CASE  DAY  N        RMSE         MAE  MaxAbsError          MBE    NRMSE_%       R2      NSE
+CASE_1    1 50 4.02415e-05 2.55329e-05  8.71298e-05 -2.54595e-05 0.00402416        1        1
+CASE_1    2 50 0.000305948 0.000251479   0.00053187  0.000251479  0.0306096        1 0.999999
+CASE_1    3 50  0.00167991 0.000955283    0.0081477  0.000955282   0.170374 0.999988 0.999977
+CASE_2    1 50 0.000423604 0.000240766    0.0011088 -0.000240694  0.0423606        1 0.999998
+CASE_2    2 50  0.00045179 0.000285553   0.00111095 -0.000221828  0.0451927        1 0.999998
+CASE_2    3 50 0.000952691 0.000616062   0.00411676 -4.55442e-05  0.0959473 0.999995  0.99999
+CASE_3    1 50  0.00152344  0.00133861   0.00259745  -0.00133861   0.164895 0.999996 0.999969
+CASE_3    2 50 0.000940986 0.000846386   0.00160093 -0.000846386   0.108802 0.999998 0.999989
+CASE_3    3 50 0.000756303 0.000651919   0.00287325  -0.00043645  0.0930283 0.999995 0.999991
+
+Aggregate metrics per case (across DAY 1, 2, 3):
+         Mean_RMSE  Pooled_RMSE    Mean_MAE  Max_AbsError  Max_AbsError_DAY  Mean_R2  Mean_NSE
+CASE                                                                                          
+CASE_1 0.000675367  0.000986125 0.000410765     0.0081477                 3 0.999996  0.999992
+CASE_2 0.000609362  0.000656043 0.000380793    0.00411676                 3 0.999998  0.999995
+CASE_3  0.00107358   0.00112225 0.000945637    0.00287325                 3 0.999996  0.999983
+
+Overall metrics across ALL cases and ALL days (9 case-day combinations):
+Mean_RMSE      0.000786102
+Pooled_RMSE    0.000942033
+Mean_MAE       0.000579065
+Max_AbsError     0.0081477
+Mean_R2           0.999997
+Mean_NSE           0.99999
+
+Maximum mismatch per case (largest |sim - analytical| across all days/depths):
+  CASE  DAY     Y  CONC_RATIO_ANALYTICAL  CONC_RATIO_SIMULATED_INTERP  ABS_ERROR
+CASE_1    3 0.001              0.0139873                     0.022135  0.0081477
+CASE_2    3 0.001             0.00706524                     0.011182 0.00411676
+CASE_3    3 0.001               0.187017                      0.18989 0.00287325
+
+Metric definitions:
+  N                : number of paired analytical depths
+  RMSE             : root mean squared error (sim - analytical)
+  MAE              : mean absolute error
+  MaxAbsError      : maximum absolute error across the profile
+  MBE              : mean bias error (positive = numerical overshoots)
+  NRMSE_%          : RMSE normalized by analytical range, expressed as %
+  R2               : Pearson coefficient of determination
+  NSE              : Nash-Sutcliffe efficiency (1.0 = perfect match)
+  Pooled_RMSE      : sqrt(sum(N_i * RMSE_i^2) / sum(N_i)), weighted by N
+  Max_AbsError     : largest |error| seen for the case across DAY 1, 2, 3
+  Max_AbsError_DAY : the day on which Max_AbsError occurred
+========================================================================================

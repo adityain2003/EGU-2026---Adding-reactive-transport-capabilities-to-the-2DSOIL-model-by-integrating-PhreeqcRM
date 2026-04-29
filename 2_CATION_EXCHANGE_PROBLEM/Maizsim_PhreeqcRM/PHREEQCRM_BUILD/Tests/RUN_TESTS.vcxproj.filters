@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\bbf2bbdb0606a4f732f918e0e4f45993\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6FE3795B-672F-3BD0-87D9-C114DE1E5F7A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

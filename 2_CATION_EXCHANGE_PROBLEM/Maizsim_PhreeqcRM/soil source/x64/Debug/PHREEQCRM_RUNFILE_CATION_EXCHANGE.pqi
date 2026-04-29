@@ -1,0 +1,60 @@
+# CUSTOM DATABASE AND INPUT FILE FOR 2DSOIL-PHREEQCRM INTEGRATION
+# AUTHOR: ADITYA KAPOOR, NWC-UNL and USDA (ARS-REE)
+
+# NOTES: Nitrate, Nitrite, Nitrous and Ammonium
+
+
+ SOLUTION   0
+ units   mol/l
+ density 1
+ pH	7.0	charge
+ pe	12.5	O2(g)	-0.68
+ Ca	0.0006
+ Cl	0.0012
+ END
+
+ SOLUTION   1-500
+ units   mol/l
+ density 1
+ pH	7.0	charge
+ pe	12.5	O2(g)	-0.68
+ Na	0.001
+ K	0.0002
+ N(5)	0.0012
+ END
+
+ EXCHANGE 0
+	-equilibrate 1
+	X	0.0011	#0.0011
+ COPY cell 1 500
+ END
+
+ SELECTED_OUTPUT
+     -active     true
+     -reset     false
+     -file   PHREEQCRM_SELECTED_OUTPUT.sel
+     -pH     true
+     -pe     true
+     -charge_balance     true
+     -percent_error     true
+#     -SOLN_VOL     true
+     -water     true
+     -totals	O Ca Cl K N X
+     -molalities H2O 
+     -kinetic_reactants   DECAY PRODUCTION #Odecay
+
+USER_PUNCH
+-headings Eh
+-start
+10 REM convert to Eh
+20 PUNCH S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)
+ -end
+
+USER_PRINT
+-start
+10 PRINT "Solution defined pe:         ", pe
+-end
+
+ KNOBS
+ -iterations 2000
+ -tolerance 1e-20

@@ -1,0 +1,97 @@
+
+ SOLUTION_MASTER_SPECIES
+ Nitrous		Nitrous			0	Nitrous		44.0
+ Dissolvedo		Dissolvedo		0	Dissolvedo	32.0
+
+ SOLUTION_SPECIES
+ 	Nitrous    =   Nitrous
+		log_k	0
+ 	Dissolvedo    =   Dissolvedo
+		log_k	0
+ 
+ SOLUTION   0
+ units   mmol/l
+ #pe	12 charge
+ redox 	pe
+ Amm	1e-5 
+ #N(+5)  10
+ #N(+3)  10
+ #N(0)	10
+ O(0)	50.5
+ #Nitrate 1.0e-5
+ #Nitrite 1.0e-5
+ USE SOLUTION 0
+ SAVE SOLUTION 0
+ END
+ KINETICS 0
+	Nreaction
+	-formula NO3- -1 NO2- 0.5 Nitrous 0.5 N2 1 	# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )
+	Odecay
+	-formula O2 -1 
+ END
+  
+ RATES
+	Nreaction
+	-start
+	10 NITRATE_CONC = MOL("NO3-")
+	20 REDOX_POTENTIAL = S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)	# IN mV
+	30 if (NITRATE_CONC>=1.0e-8 AND REDOX_POTENTIAL <1000) Then rate = 1.0e-10 ELSE rate = 0.0		# MOL IS MOLALITY (= MOLARITY IF DENSITY =1) OF A SPECIES IN MOLES/Kgw
+	40 moles = 1*rate*TIME*SOLN_VOL
+	50 SAVE moles
+	-end
+
+	Odecay
+	-start
+	 5 K_OXYGEN = 4.0e-5	#4.0e-6
+	10 O2_CONC = MOL("O2")
+	20 REDOX_POTENTIAL = S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)	# IN mV
+	30 if (O2_CONC>=1.0e-12) Then rate = ((K_OXYGEN)*(MOL("O2"))) ELSE rate = 0.0		# MOL IS MOLALITY (= MOLARITY IF DENSITY =1) OF A SPECIES IN MOLES/Kgw
+	40 moles = 1*rate*TIME*SOLN_VOL
+	50 SAVE moles
+	-end
+
+ SOLUTION 1-600
+ units   mmol/l
+ #pe	14 charge
+ #Amm	20.0 charge
+ #N(+5)  20.0
+ #O(0)	8.0
+ #Amm	1.0e-5 charge
+ #Nitrate 1.0e-5
+ #Nitrite 1.0e-5
+ USE SOLUTION 0
+ END
+ KINETICS 1-600
+	Nreaction
+	-formula NO3- -1 NO2- 0.5 Nitrous 0.5 N2 1 		# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITRITE )
+	Odecay
+	-formula O2 -1  
+ END
+
+ SELECTED_OUTPUT
+     -active     true
+     -reset     false
+     -file   PHREEQCRM_SELECTED_OUTPUT.sel
+     -pH     true
+     -pe     true
+     -charge_balance     true
+     -percent_error     true
+#     -SOLN_VOL     true
+     -water     true
+     -totals	O(0)
+
+USER_PUNCH
+-headings Eh
+-start
+10 REM convert to Eh
+20 PUNCH S-LA("e-")*(1000*2.303*8.3144*TK)/(96484)
+ -end
+
+USER_PRINT
+-start
+10 PRINT "Solution defined pe:         ", pe
+-end
+
+ KNOBS
+ -iterations 2000
+ -tolerance 1e-20

@@ -1,0 +1,33 @@
+ Volume in drive C is OS
+ Volume Serial Number is 6A16-334B
+
+ Directory of C:\Users\ADITYA.KAPOOR\Desktop\Excel interface\MaizSim\Examples\PHREEQC_APPLICATION_CATION_EXCHANGE\TEST_CASE_BM
+
+06/12/2025  11:42 AM    <DIR>          .
+06/12/2025  11:40 AM    <DIR>          ..
+06/12/2025  11:41 AM               362 BiologyDefault.bio
+06/12/2025  11:42 AM                 0 createError.log
+06/12/2025  11:42 AM                 0 dir.txt
+06/12/2025  11:41 AM               351 GasID.gas
+06/12/2025  11:42 AM               334 grid1.bat
+06/12/2025  11:42 AM             1,498 MulchGeo1.mul
+06/12/2025  11:41 AM               406 NitrogenDefault.sol
+06/12/2025  11:42 AM             2,585 Pn_33B51.var
+06/12/2025  11:42 AM               471 Rosetta.log
+06/12/2025  11:42 AM             3,781 runTEST_CASE_BM.dat
+06/12/2025  11:42 AM               131 SOIL_TEST_CASE_BM.dat
+06/12/2025  11:42 AM               376 SOIL_TEST_CASE_BM.soi
+06/12/2025  11:42 AM               161 TEST_CASE_BM.drp
+06/12/2025  11:42 AM            19,358 TEST_CASE_BM.grd
+06/12/2025  11:41 AM               551 TEST_CASE_BM.ini
+06/12/2025  11:42 AM               393 TEST_CASE_BM.irr
+06/12/2025  11:42 AM             1,511 TEST_CASE_BM.lyr
+06/12/2025  11:41 AM               874 TEST_CASE_BM.man
+06/12/2025  11:42 AM            44,085 TEST_CASE_BM.nod
+06/12/2025  11:42 AM               466 TEST_CASE_BM.tim
+06/12/2025  11:42 AM               606 TEST_CASE_CLIMATE.dat
+06/12/2025  11:42 AM               450 TEST_CASE_NIT.nit
+06/12/2025  11:42 AM           164,268 TEST_CASE_WEATHER.wea
+06/12/2025  11:42 AM               290 WaterMovDefault.dat
+              24 File(s)        243,308 bytes
+               2 Dir(s)  716,191,395,840 bytes free

@@ -1,0 +1,37 @@
+ Volume in drive C is OS
+ Volume Serial Number is 6A16-334B
+
+ Directory of C:\Users\ADITYA.KAPOOR\Desktop\Excel interface\MaizSim\Examples\PHREEQC_BENCHMARKING\TEST_CASE_BM
+
+05/12/2025  05:22 PM    <DIR>          .
+05/12/2025  05:18 PM    <DIR>          ..
+05/12/2025  05:21 PM               362 BiologyDefault.bio
+05/12/2025  05:22 PM                 0 createError.log
+09/19/2024  04:41 PM           439,296 createSoilFiles.exe
+05/12/2025  05:22 PM                 0 dir.txt
+05/12/2025  05:21 PM               351 GasID.gas
+05/12/2025  05:21 PM               319 grid1.bat
+01/26/2023  06:51 PM         1,762,816 GridGenDll.dll
+05/12/2025  05:21 PM             1,498 MulchGeo1.mul
+05/12/2025  05:21 PM               406 NitrogenDefault.sol
+05/12/2025  05:21 PM             2,585 Pn_33B51.var
+01/26/2023  06:51 PM         2,506,240 Rosetta.exe
+05/12/2025  05:22 PM               426 Rosetta.log
+05/12/2025  05:21 PM             3,346 runTEST_CASE_BM.dat
+05/12/2025  05:22 PM               131 SOIL_TEST_CASE_BM.dat
+05/12/2025  05:22 PM               376 SOIL_TEST_CASE_BM.soi
+05/12/2025  05:21 PM               161 TEST_CASE_BM.drp
+05/12/2025  05:22 PM            96,975 TEST_CASE_BM.grd
+05/12/2025  05:21 PM               551 TEST_CASE_BM.ini
+05/12/2025  05:21 PM               393 TEST_CASE_BM.irr
+05/12/2025  05:21 PM             1,503 TEST_CASE_BM.lyr
+05/12/2025  05:21 PM               874 TEST_CASE_BM.man
+05/12/2025  05:22 PM           211,031 TEST_CASE_BM.nod
+05/12/2025  05:21 PM               466 TEST_CASE_BM.tim
+05/12/2025  05:21 PM               606 TEST_CASE_CLIMATE.dat
+05/12/2025  05:21 PM               450 TEST_CASE_NIT.nit
+05/12/2025  05:21 PM           164,268 TEST_CASE_WEATHER.wea
+05/17/2021  04:30 PM           173,568 vangenuch.xls
+05/12/2025  05:21 PM               290 WaterMovDefault.dat
+              28 File(s)      5,369,288 bytes
+               2 Dir(s)  718,559,023,104 bytes free

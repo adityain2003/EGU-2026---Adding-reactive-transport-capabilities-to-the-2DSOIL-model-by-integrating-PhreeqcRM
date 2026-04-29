@@ -1,0 +1,12 @@
+prefix=C:/Program Files (x86)/PhreeqcRM
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: PhreeqcRM
+Description: A reaction module for transport simulators based on the geochemical model PHREEQC
+URL: https://github.com/usgs-coupled/phreeqcrm
+Version: 3.7.0
+Requires:
+Libs: -L${libdir} -lPhreeqcRM
+Cflags: -I${includedir}  
