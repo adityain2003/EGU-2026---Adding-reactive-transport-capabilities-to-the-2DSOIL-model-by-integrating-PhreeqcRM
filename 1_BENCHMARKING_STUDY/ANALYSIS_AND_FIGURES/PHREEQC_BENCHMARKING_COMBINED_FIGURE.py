@@ -53,37 +53,25 @@ def panel(ax, df, title, label, rates):
                    zorder=2, color=DAY_COLORS[t], edgecolor="black", s=20,
                    label=f"Analytical (t = {t} Day)")
 
-    ax.set_xlabel("Concentration (mols/l)", fontsize=20, labelpad=10)
+    ax.set_xlabel("Concentration (mols/l)", fontsize=24, labelpad=10)
     ax.set_xlim(-0.001, 1.0)
     ax.set_ylim(0, 750)
     ax.set_yticks([0, 100, 200, 300, 400, 500, 600, 700, 750])
     ax.set_clip_on(True)
-    ax.set_title(title, fontsize=18)
+    ax.set_title(title, fontsize=24)
     ax.grid(True, color="gray", alpha=0.3, linewidth=0.5)
 
     # Bold panel letter in upper-left corner inside the plot.
     ax.text(0.03, 0.97, label, transform=ax.transAxes,
             fontsize=22, weight="bold", va="top", ha="left", zorder=12)
 
-    # Pooled RMSE for this case (concatenate residuals across all days,
-    # then sqrt(mean(err^2))). Displayed in a rounded white box together
-    # with the rate constants for this case.
-    all_sim, all_ana = [], []
-    for t in DAYS:
-        sub = df[df["DAY"] == t].sort_values("Y")
-        all_sim.append(sub["CONC_RATIO_SIMULATED"].to_numpy())
-        all_ana.append(sub[f"CONC_RATIO_ANALYTICAL_AT_Y_DAY_{t}"].to_numpy())
-    all_sim = np.concatenate(all_sim)
-    all_ana = np.concatenate(all_ana)
-    rmse_overall = float(np.sqrt(np.mean((all_sim - all_ana) ** 2)))
-
-    # Box dimensions: tight padding so the content fills the box evenly.
-    n_lines = 1 + len(rates)
-    line_step = 0.058          # vertical spacing between lines (axes coords)
+    # Rate constants for this case in a rounded white box.
+    n_lines = len(rates)
+    line_step = 0.063          # vertical spacing between lines (axes coords)
     pad_top = 0.040            # padding from top of box to top of first line
     pad_bot = 0.020            # padding from bottom of last line to box bottom
-    box_x, box_y = 0.62, 0.06
-    box_w = 0.34
+    box_x, box_y = 0.56, 0.06
+    box_w = 0.40
     box_h = pad_top + pad_bot + n_lines * line_step
 
     ax.add_patch(FancyBboxPatch(
@@ -93,17 +81,12 @@ def panel(ax, df, title, label, rates):
         facecolor="white", edgecolor="black", linewidth=1.6,
         clip_on=False, zorder=10,
     ))
-    # Rates above, RMSE at the bottom. All same font size; only RMSE in bold.
     line_top_y = box_y + box_h - pad_top
     for i, rate in enumerate(rates):
         ax.text(box_x + box_w / 2, line_top_y - i * line_step,
                 rate, transform=ax.transAxes,
-                fontsize=16, weight="normal",
+                fontsize=24, weight="normal",
                 ha="center", va="top", color="black", zorder=11)
-    ax.text(box_x + box_w / 2, line_top_y - len(rates) * line_step,
-            f"RMSE = {rmse_overall:.2e}",
-            transform=ax.transAxes, fontsize=16, weight="bold",
-            ha="center", va="top", color="black", zorder=11)
 
 
 def main():
@@ -126,7 +109,7 @@ def main():
     plt.rcParams["font.serif"] = ["Times New Roman", "DejaVu Serif"]
     plt.rcParams["mathtext.fontset"] = "stix"
     plt.rcParams["axes.unicode_minus"] = False
-    fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(19.2, 10.8))
+    fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(19.2, 11.9))
 
     for ax, sheet, ptitle, plabel, prates in zip(
         axes, SHEETS, PANELS, PANEL_LABELS, PANEL_RATES
@@ -134,15 +117,15 @@ def main():
         panel(ax, sheets[sheet], ptitle, plabel, prates)
 
     # Panel-specific axis label / tick handling, matching the original script.
-    axes[0].set_ylabel("Height above the column base (cm)", fontsize=20)
-    axes[0].tick_params(axis="both", labelsize=20, pad=10)
+    axes[0].set_ylabel("Height above the column base (cm)", fontsize=24)
+    axes[0].tick_params(axis="both", labelsize=22, pad=10)
 
-    axes[1].tick_params(axis="x", labelsize=20, pad=10)
+    axes[1].tick_params(axis="x", labelsize=22, pad=10)
     axes[1].tick_params(axis="y", labelleft=False, direction="in")
 
-    axes[2].tick_params(axis="x", labelsize=20, pad=10)
+    axes[2].tick_params(axis="x", labelsize=22, pad=10)
     axes[2].tick_params(axis="y", direction="in", labelleft=False,
-                        labelright=True, labelsize=20, pad=10)
+                        labelright=True, labelsize=22, pad=10)
     axes[2].tick_params(right=True, direction="out")
 
     fig.tight_layout()
@@ -158,9 +141,9 @@ def main():
     for i in range(n):
         interleaved_h.extend([handles[i], handles[i + n]])
         interleaved_l.extend([labels[i], labels[i + n]])
-    fig.subplots_adjust(bottom=0.20)
+    fig.subplots_adjust(bottom=0.26)
     fig.legend(interleaved_h, interleaved_l, loc="lower center", ncol=n,
-               fontsize=16, frameon=True, framealpha=1.0, markerscale=2.0,
+               fontsize=24, frameon=True, framealpha=1.0, markerscale=2.0,
                bbox_to_anchor=(0.5, 0.01))
 
     figures_dir = os.path.join(here, "FIGURES")
