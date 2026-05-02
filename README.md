@@ -147,15 +147,16 @@ profiles down the column.
 The 2DSOIL ↔ PhreeqcRM result is benchmarked **against IPhreeqc** (PHREEQC's
 standalone transport solver) running the same chemistry on the same grid —
 not against an analytical solution. Reference output files live in
-`2_PHREEQC_APPLICATION_CATION_EXCHANGE/` as `IPHREEQC_OUTPUT_*.sel` and the
-combined comparison spreadsheets `RESULTS_100cm_1cm*.xlsx`.
+`IPHREEQC_FILES/` as `IPHREEQC_OUTPUT_*.sel` and the combined comparison
+spreadsheets `RESULTS_100cm_1cm*.xlsx`.
 
 ### Layout
 
 ```
 2_CATION_EXCHANGE_PROBLEM/
-├── 2_PHREEQC_APPLICATION_CATION_EXCHANGE/   PHREEQC standalone reference + visualization
-├── ERROR_CALCULATION/                       Error-metric script
+├── ANALYSIS_AND_FIGURES/                    Error metrics + publication figures
+│   └── FIGURES/                             CATIONS / ANIONS publication figures
+├── IPHREEQC_FILES/                          PHREEQC standalone reference (inputs + .sel outputs)
 └── Maizsim_PhreeqcRM/                       2DSOIL + MAIZSIM + PhreeqcRM (modified glue)
     ├── soil source/      2DSOIL (Fortran) — see "Differences from codebase 1" below
     ├── crop source/      MAIZSIM (C++)
@@ -206,7 +207,7 @@ In `Maizsim_PhreeqcRM/soil source/x64/Debug/`:
 To switch the active runfile, edit the literal string in
 `soil source/PhreeqcRM.FOR` at lines 182 and 653 and rebuild.
 
-### Reference / standalone PHREEQC inputs (in `2_PHREEQC_APPLICATION_CATION_EXCHANGE/`)
+### Reference / standalone PHREEQC inputs (in `IPHREEQC_FILES/`)
 
 | File                                       | Purpose                                                                |
 |--------------------------------------------|------------------------------------------------------------------------|
@@ -216,10 +217,6 @@ To switch the active runfile, edit the literal string in
 | `IPHREEQC_OUTPUT_100cm_1cm*.sel`           | `SELECTED_OUTPUT` files from IPhreeqc — the **reference** to compare against. |
 | `ex11adv.sel`, `ex11trn.sel`, `advect.pqi` | PHREEQC manual *Example 11* advection / transport baselines.           |
 | `RESULTS_100cm_1cm*.xlsx`                  | Comparison spreadsheets — 2DSOIL-PhreeqcRM and IPhreeqc side-by-side.  |
-| `CATION_EXCHANGE_VISUALIZATION.py`         | Plots Ca²⁺, Cl⁻, Na⁺, K⁺, NO₃⁻ profiles vs depth at multiple times, overlaying both sources. |
-| `CATIONS.png`, `ANIONS.png`                | Final overlaid figures.                                                |
-| `CATION_EXCHANGE_PROBLEM.pptx`             | Slides used for the EGU presentation.                                  |
-| `RESULTS_CATION_EXCHANGE.docx`             | Write-up of the results.                                               |
 
 ### Run scenario
 
@@ -230,13 +227,30 @@ duration of the simulation (Jan 2024 dates in `FERTIGATION_SCHEDULE.txt`),
 and concentrations at `x = 5.0` cm are written to `FERTIGATION_OUTPUT.txt`
 every step in mmol/L for all five species.
 
-### Error metrics
+### Analysis pipeline + figures
 
-`2_CATION_EXCHANGE_PROBLEM/ERROR_CALCULATION/`:
+All consolidated under `2_CATION_EXCHANGE_PROBLEM/ANALYSIS_AND_FIGURES/`. Run
+via `RUN_ALL.bat` or sequentially:
 
-- `ERROR_CALCULATION_CATION_EXCHANGE.py` — RMSE / MAE / SMAPE between
-  2DSOIL-PhreeqcRM and IPhreeqc, per species.
-- `RESULTS_100cm_1cm_ALL_NODES.xlsx` — input data the script reads.
+1. `ERROR_CALCULATION_CATION_EXCHANGE.py` — per-species, per-day RMSE / MAE
+   / MaxAE / MBE / NRMSE / R² / NSE / MAPE / SMAPE for all 5 species
+   (Ca²⁺, Cl⁻, Na⁺, K⁺, NO₃⁻) over days 1–3, plus per-species and overall
+   aggregates (Mean / Pooled / Simple RMSE). The IPhreeqc reference is
+   linearly interpolated from its cell-centered grid (0.5–99.5 cm) onto
+   the simulated node grid (0–100 cm) before metrics are computed; values
+   ≤ 0.01 mmol/L on either side are masked out (avoid MAPE blow-up).
+   Outputs `RESULTS_CATION_EXCHANGE_ERROR_METRICS.{txt,xlsx}`.
+2. `CATION_EXCHANGE_VISUALIZATION.py` — produces two publication figures
+   in `FIGURES/`: a 3-panel `CATIONS_*` (Ca²⁺/Na⁺/K⁺) and a 2-panel
+   `ANIONS_*` (Cl⁻/NO₃⁻), each in PNG (300 + 600 DPI) and vector PDF.
+   Style matches the 1-D benchmarking figures (Times New Roman, dashed
+   simulated lines, scatter IPhreeqc markers, bold (a)/(b)/(c) corner
+   labels, shared bottom legend, rounded RMSE box at the top of each
+   panel).
+
+Workbook used by the pipeline: `RESULTS_100cm_1cm_ALL_NODES.xlsx` in the
+same folder (a copy of one of the comparison spreadsheets in
+`IPHREEQC_FILES/`).
 - `ERROR.xlsx` — aggregated metrics.
 
 ---

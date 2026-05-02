@@ -1,0 +1,68 @@
+================================================================================================
+Error metrics: 2DSoil-PhreeqcRM vs IPhreeqc reference  (cation-exchange benchmark)
+Domain: 100 cm column, 1 cm node spacing.
+Days compared: 1, 2, 3 (DAY 0 = initial condition; DAY 4-5 dropped because the
+anions have left the column and the cations are too dilute to compare meaningfully).
+Mask: pairs with sim <= 0.01 OR ref <= 0.01 mmol/L are excluded (avoid MAPE blow-up).
+IPhreeqc reference linearly interpolated from cell-centered Y (0.5..99.5 cm) onto
+the simulated node grid (0..100 cm) before computing metrics.
+================================================================================================
+
+Per-species, per-day metrics:
+Species  DAY   N       RMSE        MAE  MaxAbsError          MBE  NRMSE_%       R2      NSE   MAPE_%  SMAPE_%
+   Ca2+    1  31  0.0102476 0.00686062    0.0226857   0.00508209  1.86461 0.996532 0.995012  3.17611  3.44093
+   Ca2+    2  56   0.010467 0.00491954     0.038688   0.00362542  1.97197  0.99928 0.991299  2.16172  1.94934
+   Ca2+    3  83  0.0126896 0.00511712    0.0578563   0.00301339  2.19809 0.996458 0.986917  2.70683  2.29429
+    Cl-    1  84 0.00428947 0.00323829   0.00886183   0.00258902 0.360987 0.999986 0.999914  3.93861  3.60544
+    Cl-    2 100 0.00152749 0.00126544   0.00418635 -0.000867318 0.301245 0.999924 0.999886 0.118077 0.118182
+    Cl-    3 100 0.00174791 0.00163414   0.00239558  -0.00163414  12.1383 0.976609 0.751634 0.136271 0.136377
+    Na+    1  84  0.0080049 0.00608211    0.0240267  -0.00608211 0.813427  0.99987 0.999447  3.05814  3.29737
+    Na+    2  57  0.0123737   0.010334    0.0204564    -0.010334  1.25267 0.999709 0.998992  4.58047  4.82269
+    Na+    3  29  0.0138092   0.010961    0.0257967   -0.0109282   2.7866  0.99982  0.99296  5.58387  5.76542
+     K+    1  86  0.0100725 0.00521202    0.0572826 -0.000573486  1.31809 0.996628 0.995709  2.98166  3.15965
+     K+    2  64  0.0189991  0.0126471    0.0644987 -0.000608079  1.95464 0.995444 0.995304  4.78546  4.95919
+     K+    3  40  0.0373301  0.0233224      0.11272   -0.0113186  3.44219 0.992393 0.991386  5.96697  6.25737
+   NO3-    1  79 0.00692214 0.00624824    0.0119074  -0.00624824 0.583873  0.99997 0.999767  2.79955  2.97416
+   NO3-    2  44 0.00265003 0.00250738   0.00341223  -0.00238276 0.537111 0.999991 0.999727  4.53399  4.79783
+   NO3-    3   5 0.00135574 0.00134953   0.00150799  -0.00134953   53.365  0.99842 -1.08716  10.1991   10.764
+
+Aggregate metrics per species (across DAY 1, 2, 3):
+         Mean_RMSE  Pooled_RMSE  Simple_RMSE   Mean_MAE  Max_AbsError  Max_AbsError_DAY  Mean_R2  Mean_NSE
+Species                                                                                                   
+Ca2+     0.0111347    0.0115697    0.0115697 0.00563243     0.0578563                 3 0.997424  0.991076
+Cl-     0.00252163   0.00270914   0.00270914 0.00204596    0.00886183                 1 0.992173  0.917145
+K+       0.0221339    0.0214682    0.0214682  0.0137272       0.11272                 3 0.994822  0.994133
+NO3-    0.00364264   0.00566207   0.00566207 0.00336838     0.0119074                 1  0.99946  0.304112
+Na+      0.0113959    0.0107484    0.0107484  0.0091257     0.0257967                 3   0.9998  0.997133
+
+Overall metrics across ALL species and ALL days:
+Mean_RMSE       0.0101658
+Pooled_RMSE     0.0120223
+Simple_RMSE     0.0120223
+Mean_MAE       0.00677992
+Max_AbsError      0.11272
+Mean_R2          0.996736
+Mean_NSE          0.84072
+
+Worst pointwise mismatch per species:
+Species  DAY  Y  REF_INTERP      SIM  ABS_ERROR
+   Ca2+    3 19     0.16715 0.225006  0.0578563
+    Cl-    1 31    0.124995 0.133857 0.00886183
+     K+    3 19    0.802845 0.690125    0.11272
+   NO3-    1 31       1.075  1.06309  0.0119074
+    Na+    3  0     0.50642 0.480623  0.0257967
+
+Metric definitions:
+  N            number of paired (interpolated, masked) depths used
+  RMSE         root mean squared error (sim - ref)              [mmol/L]
+  MAE          mean absolute error                              [mmol/L]
+  MaxAbsError  largest |error| seen                             [mmol/L]
+  MBE          mean bias error  (positive = sim overshoots)     [mmol/L]
+  NRMSE_%      RMSE normalised by ref range, as percent
+  R2           Pearson coefficient of determination
+  NSE          Nash-Sutcliffe efficiency (1.0 = perfect match)
+  MAPE_%       mean absolute percentage error                   [%]
+  SMAPE_%      symmetric MAPE                                   [%]
+  Pooled_RMSE  sqrt( sum(N_i RMSE_i^2) / sum(N_i) ), N-weighted
+  Simple_RMSE  RMSE on the concatenated residual vector for the species
+================================================================================================
