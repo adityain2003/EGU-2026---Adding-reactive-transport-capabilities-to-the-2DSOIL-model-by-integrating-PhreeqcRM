@@ -46,8 +46,8 @@ the visualization / error-calculation Python scripts.
 ```
 1_BENCHMARKING_STUDY/
 ├── INFO.txt
-├── 1_PHREEQC_BENCHMARKING_STUDY_1_ANALYTICAL_SOLUTION/   Python plotting + analytical reference
-├── ERROR_CALCULATION/                                    Error-metric scripts (RMSE / MAE / SMAPE)
+├── ANALYSIS_AND_FIGURES/                                 Analytical-solution scripts, error metrics, and figures
+│   └── FIGURES/                                          Per-case and combined publication figures
 └── Maizsim_PhreeqcRM/
     ├── soil source/      2DSOIL (Fortran)  → builds 2dMAIZSIM.exe
     ├── crop source/      MAIZSIM (C++)     → builds Maizsim.dll
@@ -103,27 +103,35 @@ Per `INFO.txt`:
 - **Day 6 onwards** — solute is injected via the fertigation module; species A
   concentrations are written to `FERTIGATION_OUTPUT.txt` at hour 0 of each day.
 
-### Visualization
+### Analytical solutions, error metrics, and figures
 
-Python scripts in `1_BENCHMARKING_STUDY/1_PHREEQC_BENCHMARKING_STUDY_1_ANALYTICAL_SOLUTION/`:
+All consolidated under `1_BENCHMARKING_STUDY/ANALYSIS_AND_FIGURES/`. The pipeline
+evaluates each case's 1-D analytical solution at the **same 437-node depth
+grid as the simulated profile** (no interpolation), writes the result back to
+`RESULTS_BENCHMARKING_ANALYTICAL_SOLUTION_750CM.xlsx` as
+`CONC_RATIO_ANALYTICAL_AT_Y_DAY_k` columns, then computes errors and produces
+publication figures.
 
-- `1_PHREEQC_2DSOIL_BENCHMARKING_SOLUTE_MOVEMENT.py` — Case 1 (no reaction).
-- `2_PHREEQC_2DSOIL_BENCHMARKING_SOLUTE_BIODEGRADATION.py` — Cases 2 and 3
-  (edit `mu` and `gamma` in the script to toggle between them).
-- `3_PHREEQC_2DSOIL_BENCHMARKING_COMPARATIVE_CURVES.py` — comparative plots
-  across all three cases.
+Run order:
 
-Output figures (`Figure_1.png`, `PHREEQC_Benchmarking_Curves_*.{png,pdf,svg,eps}`)
-are checked in alongside the scripts.
+1. `ANALYTICAL_AT_SIMULATED_DEPTHS_CASE_1.py` — Case 1, Ogata-Banks (1961)
+   advection-dispersion. Adds 4 columns to the `CASE_1` sheet, saves a
+   single-panel "(a)" figure to `FIGURES/`.
+2. `ANALYTICAL_AT_SIMULATED_DEPTHS_CASE_2.py` — Case 2, van Genuchten (1981)
+   with first-order decay (`mu = 0.2592 1/day`, `gamma = 0`). Adds 4 columns
+   to `CASE_2`, saves "(b)" figure.
+3. `ANALYTICAL_AT_SIMULATED_DEPTHS_CASE_3.py` — Case 3, full van Genuchten
+   (`mu = 0.2592`, `gamma = 0.0864 1/day`). Adds 4 columns to `CASE_3`,
+   saves "(c)" figure.
+4. `ERROR_CALCULATION.py` — reads the new dense columns, computes per-day
+   RMSE / MAE / MaxAbsError / MBE / NRMSE / R² / NSE on N=437 paired depths,
+   plus per-case and overall aggregates (Mean / Pooled / Simple RMSE).
+   Outputs `RESULTS_BENCHMARKING_ERROR_METRICS.{txt,xlsx}`.
+5. `PHREEQC_BENCHMARKING_COMBINED_FIGURE.py` — 3-panel publication figure
+   (a) (b) (c), saved to `FIGURES/` in PNG (300/600 DPI), PDF, SVG, and EPS.
 
-### Error metrics
-
-`1_BENCHMARKING_STUDY/ERROR_CALCULATION/`:
-
-- `ERROR_COMPUTATION_CASE_{1,2,3}_*.py` — per-case RMSE / MAE / SMAPE between
-  simulated and analytical concentrations.
-- `RESULTS_BENCHMARKING_ERROR_METRICS.{txt,xlsx}` — aggregated results.
-- `COLUMN_SAMPLED_COORDINATES.xlsx` — sampling depths used for the metrics.
+Steps 4 and 5 depend on step 1-3 having run; they're independent of each
+other.
 
 ---
 

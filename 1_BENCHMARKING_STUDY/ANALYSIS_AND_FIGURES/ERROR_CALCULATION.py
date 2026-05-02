@@ -4,14 +4,15 @@ PHREEQC-2DSOIL numerical results against the 1-D analytical solution stored
 in RESULTS_BENCHMARKING_ANALYTICAL_SOLUTION_750CM.xlsx.
 
 File layout (per sheet CASE_1 / CASE_2 / CASE_3):
-    Simulated columns : Y (cm), CONC_RATIO_SIMULATED, with DAY in {0..5}.
-    Analytical columns: Y_ANALYTICAL_DAY_k, CONC_RATIO_ANALYTICAL_DAY_k for
-                       k in {0,1,2,3}; only the first 50 rows of the sheet
-                       carry analytical values, the rest are NaN.
+    Simulated  : Y (cm), CONC_RATIO_SIMULATED, with DAY in {0..5}.
+    Analytical : CONC_RATIO_ANALYTICAL_AT_Y_DAY_k for k in {1,2,3}, evaluated
+                 on the SAME 437-node simulated Y grid. These columns are
+                 produced by ANALYTICAL_AT_SIMULATED_DEPTHS_CASE_{1,2,3}.py.
 
-The simulated Y grid is denser (437 nodes) than the analytical grid
-(50 depths), so the simulated profile is linearly interpolated onto the
-analytical depths before metrics are computed.
+Because analytical and simulated live on identical depths, no interpolation
+is needed - errors are computed point-wise on N=437 per case-day. (This
+replaces the earlier workflow that used the sparse Y_ANALYTICAL_DAY_k 50-
+node grid and interpolated the simulated profile onto it.)
 """
 
 import os
@@ -65,57 +66,54 @@ def compute_metrics(sim, ana):
 
 
 def load_case(xlsx_path, sheet):
-    """Return (sim_by_day, ana_by_day) dicts keyed by DAY index."""
+    """Return a dict keyed by DAY of paired (Y, sim, ana) DataFrames.
+
+    Reads the new CONC_RATIO_ANALYTICAL_AT_Y_DAY_k columns, which live on
+    the same 437-node Y grid as the simulated profile, so no interpolation
+    is needed.
+    """
     df = pd.read_excel(xlsx_path, sheet_name=sheet)
 
-    sim_by_day = {}
-    for day, sub in df.groupby("DAY"):
-        sub = sub[["Y", "CONC_RATIO_SIMULATED"]].dropna()
-        sub = sub.sort_values("Y").reset_index(drop=True)
-        sim_by_day[int(day)] = sub
-
-    ana_by_day = {}
+    pairs_by_day = {}
     for k in ANALYTICAL_DAYS:
-        y_col = f"Y_ANALYTICAL_DAY_{k}"
-        c_col = f"CONC_RATIO_ANALYTICAL_DAY_{k}"
-        sub = df[[y_col, c_col]].dropna()
-        sub = sub.rename(columns={y_col: "Y", c_col: "CONC_RATIO_ANALYTICAL"})
+        ana_col = f"CONC_RATIO_ANALYTICAL_AT_Y_DAY_{k}"
+        if ana_col not in df.columns:
+            raise RuntimeError(
+                f"Sheet '{sheet}' is missing column '{ana_col}'. "
+                f"Run ANALYTICAL_AT_SIMULATED_DEPTHS_CASE_{{1,2,3}}.py first."
+            )
+        sub = df[df["DAY"] == k][["Y", "CONC_RATIO_SIMULATED", ana_col]].dropna()
+        sub = sub.rename(columns={ana_col: "CONC_RATIO_ANALYTICAL"})
         sub = sub.sort_values("Y").reset_index(drop=True)
-        ana_by_day[k] = sub
+        pairs_by_day[k] = sub
 
-    return sim_by_day, ana_by_day
+    return pairs_by_day
 
 
 def evaluate_case(xlsx_path, sheet):
-    sim_by_day, ana_by_day = load_case(xlsx_path, sheet)
+    pairs_by_day = load_case(xlsx_path, sheet)
 
     rows = []
     paired_frames = []
 
     for day in ANALYTICAL_DAYS:
-        if day not in sim_by_day:
+        pair = pairs_by_day.get(day)
+        if pair is None or pair.empty:
             continue
-        sim = sim_by_day[day]
-        ana = ana_by_day[day]
+        sim = pair["CONC_RATIO_SIMULATED"].to_numpy()
+        ana = pair["CONC_RATIO_ANALYTICAL"].to_numpy()
 
-        # Interpolate simulated profile onto analytical depths.
-        sim_at_ana = np.interp(
-            ana["Y"].values,
-            sim["Y"].values,
-            sim["CONC_RATIO_SIMULATED"].values,
-        )
-
-        metrics = compute_metrics(sim_at_ana, ana["CONC_RATIO_ANALYTICAL"].values)
+        metrics = compute_metrics(sim, ana)
         metrics = {"CASE": sheet, "DAY": day, **metrics}
         rows.append(metrics)
 
         paired = pd.DataFrame({
             "CASE": sheet,
             "DAY": day,
-            "Y": ana["Y"].values,
-            "CONC_RATIO_ANALYTICAL": ana["CONC_RATIO_ANALYTICAL"].values,
-            "CONC_RATIO_SIMULATED_INTERP": sim_at_ana,
-            "ABS_ERROR": np.abs(sim_at_ana - ana["CONC_RATIO_ANALYTICAL"].values),
+            "Y": pair["Y"].values,
+            "CONC_RATIO_ANALYTICAL": ana,
+            "CONC_RATIO_SIMULATED": sim,
+            "ABS_ERROR": np.abs(sim - ana),
         })
         paired_frames.append(paired)
 
@@ -130,7 +128,7 @@ def build_report(summary_all, agg, worst_points, overall):
         "Error metrics: PHREEQC-2DSOIL numerical vs. 1-D analytical solution",
         "Domain depth = 750 cm; metrics in concentration-ratio units (dimensionless)",
         "Days compared: 1, 2, 3 (DAY 0 omitted - identical zero initial condition)",
-        "Simulated profile interpolated onto the 50 analytical depths per day.",
+        "Analytical evaluated on the dense 437-node simulated Y grid (no interpolation).",
         bar,
         "",
         "Per-case, per-day metrics:",
@@ -155,6 +153,8 @@ def build_report(summary_all, agg, worst_points, overall):
         "  R2               : Pearson coefficient of determination",
         "  NSE              : Nash-Sutcliffe efficiency (1.0 = perfect match)",
         "  Pooled_RMSE      : sqrt(sum(N_i * RMSE_i^2) / sum(N_i)), weighted by N",
+        "  Simple_RMSE      : RMSE on the concatenated residual vector for the group",
+        "                     (= Pooled_RMSE when all N_i equal; included as cross-check)",
         "  Max_AbsError     : largest |error| seen for the case across DAY 1, 2, 3",
         "  Max_AbsError_DAY : the day on which Max_AbsError occurred",
         bar,
@@ -179,6 +179,18 @@ def main():
     summary_all = pd.concat(summary_frames, ignore_index=True)
     paired_all = pd.concat(paired_frames, ignore_index=True)
 
+    # Simple RMSE: standard formula applied directly to the concatenated
+    # residual vector. Equals Pooled_RMSE when all N_i are identical
+    # (as here: 50 paired depths per case-day), and is included as a
+    # cross-check and as the most directly interpretable aggregate.
+    simple_rmse_per_case = (
+        paired_all.groupby("CASE")["ABS_ERROR"]
+        .apply(lambda x: float(np.sqrt(np.mean(x.values ** 2))))
+    )
+    simple_rmse_overall = float(
+        np.sqrt(np.mean(paired_all["ABS_ERROR"].values ** 2))
+    )
+
     pd.set_option("display.float_format", lambda v: f"{v:.6g}")
     agg = summary_all.groupby("CASE").apply(
         lambda g: pd.Series({
@@ -192,12 +204,13 @@ def main():
         }),
         include_groups=False,
     )
+    agg.insert(loc=2, column="Simple_RMSE", value=simple_rmse_per_case)
 
     # Locate the single worst point (largest absolute error) for each case.
     worst_idx = paired_all.groupby("CASE")["ABS_ERROR"].idxmax()
     worst_points = paired_all.loc[worst_idx, [
         "CASE", "DAY", "Y", "CONC_RATIO_ANALYTICAL",
-        "CONC_RATIO_SIMULATED_INTERP", "ABS_ERROR",
+        "CONC_RATIO_SIMULATED", "ABS_ERROR",
     ]].reset_index(drop=True)
 
     # Overall summary across all cases and days.
@@ -207,6 +220,7 @@ def main():
             (summary_all["RMSE"] ** 2 * summary_all["N"]).sum()
             / summary_all["N"].sum()
         ),
+        "Simple_RMSE": simple_rmse_overall,
         "Mean_MAE": summary_all["MAE"].mean(),
         "Max_AbsError": summary_all["MaxAbsError"].max(),
         "Mean_R2": summary_all["R2"].mean(skipna=True),
