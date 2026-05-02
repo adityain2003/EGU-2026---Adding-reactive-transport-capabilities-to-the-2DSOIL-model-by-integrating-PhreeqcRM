@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioUserFile ProjectCreator="Intel Fortran" Keyword="Console Application - Converted from CVF" Version="11.0" ProjectIdGuid="{05500875-9B63-45CA-B7D6-FD6A5240ED1A}" SccProjectName="SAK" SccLocalPath="SAK" SccAuxPath="SAK" SccProvider="SAK">
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+		</Configuration>
+		<Configuration Name="Release|Win32">
+		</Configuration>
+		<Configuration Name="Debug|x64" WorkingDirectory="$(IntDir)">
+		</Configuration>
+		<Configuration Name="Release|x64">
+		</Configuration>
+		<Configuration Name="Release_classim|Win32">
+		</Configuration>
+		<Configuration Name="Release_classim|x64">
+		</Configuration>
+	</Configurations></VisualStudioUserFile>

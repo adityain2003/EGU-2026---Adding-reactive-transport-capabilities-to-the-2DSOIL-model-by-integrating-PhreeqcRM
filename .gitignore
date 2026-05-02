@@ -38,6 +38,11 @@
 *.suo
 *.user
 *.userosscache
+
+# Exception: track the 2dMAIZSIM Fortran-project working-directory settings
+# so the debug WorkingDirectory ($(IntDir)) persists across clones.
+!1_BENCHMARKING_STUDY/Maizsim_PhreeqcRM/soil source/2dMAIZSIM.vfproj.*.user
+!2_CATION_EXCHANGE_PROBLEM/Maizsim_PhreeqcRM/soil source/2dMAIZSIM.vfproj.*.user
 *.sln.docstates
 *.userprefs
 *.ncb
