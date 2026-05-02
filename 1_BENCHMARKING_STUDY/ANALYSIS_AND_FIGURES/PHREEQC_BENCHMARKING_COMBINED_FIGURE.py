@@ -31,7 +31,9 @@ PANEL_RATES = [
     ["μ = 3 × 10⁻⁶ s⁻¹", "γ = 1 × 10⁻⁶ s⁻¹"],                 # (c) decay + production
 ]
 DAYS = [1, 2, 3]   # DAY 0 omitted: trivial zero initial condition
-DAY_COLORS = {1: "blue", 2: "green", 3: "orange"}
+# Wong (2011) colorblind-safe palette: blue, bluish green, vermillion.
+DAY_COLORS = {1: "#0072B2", 2: "#009E73", 3: "#D55E00"}
+DAY_MARKERS = {1: "s", 2: "^", 3: "D"}
 N_VIS = 50
 
 
@@ -45,25 +47,23 @@ def panel(ax, df, title, label, rates):
         sub = df[df["DAY"] == t].sort_values("Y")
         ax.plot(sub["CONC_RATIO_SIMULATED"], sub["Y"],
                 zorder=1, linestyle="--", color=DAY_COLORS[t],
-                label=f"Simulated (t = {t} Day)")
+                label=f"Simulated (Day {t})")
 
     for t in DAYS:
         col = f"CONC_RATIO_ANALYTICAL_AT_Y_DAY_{t}"
         ax.scatter(analytical_vis[col], analytical_vis["Y"],
                    zorder=2, color=DAY_COLORS[t], edgecolor="black", s=20,
-                   label=f"Analytical (t = {t} Day)")
+                   marker=DAY_MARKERS[t],
+                   label=f"Analytical (Day {t})")
 
     ax.set_xlabel("Concentration (mols/l)", fontsize=24, labelpad=10)
     ax.set_xlim(-0.001, 1.0)
     ax.set_ylim(0, 750)
     ax.set_yticks([0, 100, 200, 300, 400, 500, 600, 700, 750])
     ax.set_clip_on(True)
-    ax.set_title(title, fontsize=24)
+    ax.set_title(f"{label} {title}", fontsize=24, weight="bold")
     ax.grid(True, color="gray", alpha=0.3, linewidth=0.5)
-
-    # Bold panel letter in upper-left corner inside the plot.
-    ax.text(0.03, 0.97, label, transform=ax.transAxes,
-            fontsize=22, weight="bold", va="top", ha="left", zorder=12)
+    ax.minorticks_on()
 
     # Rate constants for this case in a rounded white box.
     n_lines = len(rates)
