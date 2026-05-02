@@ -27,18 +27,24 @@ Species  DAY   N       RMSE        MAE  MaxAbsError          MBE  NRMSE_%       
    NO3-    3   5 0.00135574 0.00134953   0.00150799  -0.00134953   53.365  0.99842 -1.08716  10.1991   10.764
 
 Aggregate metrics per species (across DAY 1, 2, 3):
-         Mean_RMSE  Pooled_RMSE  Simple_RMSE   Mean_MAE  Max_AbsError  Max_AbsError_DAY  Mean_R2  Mean_NSE
-Species                                                                                                   
-Ca2+     0.0111347    0.0115697    0.0115697 0.00563243     0.0578563                 3 0.997424  0.991076
-Cl-     0.00252163   0.00270914   0.00270914 0.00204596    0.00886183                 1 0.992173  0.917145
-K+       0.0221339    0.0214682    0.0214682  0.0137272       0.11272                 3 0.994822  0.994133
-NO3-    0.00364264   0.00566207   0.00566207 0.00336838     0.0119074                 1  0.99946  0.304112
-Na+      0.0113959    0.0107484    0.0107484  0.0091257     0.0257967                 3   0.9998  0.997133
+         Mean_RMSE  Pooled_RMSE  Simple_RMSE  Mean_NRMSE_%   Mean_MAE  Max_AbsError  Max_AbsError_DAY  Mean_R2  Mean_NSE
+Species                                                                                                                 
+Ca2+     0.0111347    0.0115697    0.0115697       2.01156 0.00563243     0.0578563                 3 0.997424  0.991076
+Cl-     0.00252163   0.00270914   0.00270914       4.26684 0.00204596    0.00886183                 1 0.992173  0.917145
+K+       0.0221339    0.0214682    0.0214682       2.23831  0.0137272       0.11272                 3 0.994822  0.994133
+NO3-    0.00364264   0.00566207   0.00566207        18.162 0.00336838     0.0119074                 1  0.99946  0.304112
+Na+      0.0113959    0.0107484    0.0107484       1.61757  0.0091257     0.0257967                 3   0.9998  0.997133
+
+Aggregate metrics by ion group (cations vs anions, across DAY 1, 2, 3):
+  Group       Members  Mean_RMSE  Pooled_RMSE  Simple_RMSE  Mean_NRMSE_%   Mean_MAE  Max_AbsError  Mean_R2  Mean_NSE  N_pairs
+CATIONS Ca2+, Na+, K+  0.0148882    0.0156593    0.0156593       1.95581 0.00949509       0.11272 0.997348  0.994114      530
+ ANIONS     Cl-, NO3- 0.00308213   0.00387548   0.00387548       11.2144 0.00270717     0.0119074 0.995816  0.610628      412
 
 Overall metrics across ALL species and ALL days:
 Mean_RMSE       0.0101658
 Pooled_RMSE     0.0120223
 Simple_RMSE     0.0120223
+Mean_NRMSE_%      5.65925
 Mean_MAE       0.00677992
 Max_AbsError      0.11272
 Mean_R2          0.996736

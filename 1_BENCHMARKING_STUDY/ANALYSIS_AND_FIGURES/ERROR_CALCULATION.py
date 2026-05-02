@@ -196,6 +196,7 @@ def main():
         lambda g: pd.Series({
             "Mean_RMSE": g["RMSE"].mean(),
             "Pooled_RMSE": np.sqrt((g["RMSE"] ** 2 * g["N"]).sum() / g["N"].sum()),
+            "Mean_NRMSE_%": g["NRMSE_%"].mean(skipna=True),
             "Mean_MAE": g["MAE"].mean(),
             "Max_AbsError": g["MaxAbsError"].max(),
             "Max_AbsError_DAY": int(g.loc[g["MaxAbsError"].idxmax(), "DAY"]),
@@ -221,6 +222,7 @@ def main():
             / summary_all["N"].sum()
         ),
         "Simple_RMSE": simple_rmse_overall,
+        "Mean_NRMSE_%": summary_all["NRMSE_%"].mean(skipna=True),
         "Mean_MAE": summary_all["MAE"].mean(),
         "Max_AbsError": summary_all["MaxAbsError"].max(),
         "Mean_R2": summary_all["R2"].mean(skipna=True),

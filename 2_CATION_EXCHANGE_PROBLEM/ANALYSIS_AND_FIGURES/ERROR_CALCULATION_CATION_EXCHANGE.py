@@ -41,6 +41,12 @@ SPECIES = [
 
 MASK_THRESHOLD = 0.01  # mmol/L; values at or below this on either side are dropped
 
+# Group memberships used to report cation-only / anion-only aggregates
+# alongside the per-species and overall numbers.
+CATIONS = ("Ca2+", "Na+", "K+")
+ANIONS = ("Cl-", "NO3-")
+SPECIES_GROUPS = (("CATIONS", CATIONS), ("ANIONS", ANIONS))
+
 
 def compute_metrics(sim, ref):
     """Return RMSE/MAE/MaxAE/MBE/NRMSE_%/R2/NSE/MAPE_%/SMAPE_% for a paired vector."""
@@ -130,7 +136,30 @@ def evaluate_species(df, label, sim_col, ref_col):
     return summary, paired
 
 
-def build_report(summary_all, agg, overall, worst_points):
+def compute_group_metrics(summary_all, paired_all, group_label, members):
+    """Aggregate metrics restricted to a subset of species (e.g. cations or anions)."""
+    sub = summary_all[summary_all["Species"].isin(members)]
+    sub_paired = paired_all[paired_all["Species"].isin(members)]
+    if sub.empty:
+        return pd.Series({"Group": group_label}, name=group_label)
+    pooled_rmse = float(np.sqrt((sub["RMSE"] ** 2 * sub["N"]).sum() / sub["N"].sum()))
+    simple_rmse = float(np.sqrt(np.mean(sub_paired["ABS_ERROR"].values ** 2)))
+    return pd.Series({
+        "Group": group_label,
+        "Members": ", ".join(members),
+        "Mean_RMSE": sub["RMSE"].mean(),
+        "Pooled_RMSE": pooled_rmse,
+        "Simple_RMSE": simple_rmse,
+        "Mean_NRMSE_%": sub["NRMSE_%"].mean(skipna=True),
+        "Mean_MAE": sub["MAE"].mean(),
+        "Max_AbsError": sub["MaxAbsError"].max(),
+        "Mean_R2": sub["R2"].mean(skipna=True),
+        "Mean_NSE": sub["NSE"].mean(skipna=True),
+        "N_pairs": int(sub["N"].sum()),
+    }, name=group_label)
+
+
+def build_report(summary_all, agg, group_agg, overall, worst_points):
     bar = "=" * 96
     return "\n".join([
         bar,
@@ -148,6 +177,9 @@ def build_report(summary_all, agg, overall, worst_points):
         "",
         "Aggregate metrics per species (across DAY 1, 2, 3):",
         agg.to_string(),
+        "",
+        "Aggregate metrics by ion group (cations vs anions, across DAY 1, 2, 3):",
+        group_agg.to_string(index=False),
         "",
         "Overall metrics across ALL species and ALL days:",
         overall.to_string(),
@@ -196,6 +228,7 @@ def main():
         lambda g: pd.Series({
             "Mean_RMSE": g["RMSE"].mean(),
             "Pooled_RMSE": np.sqrt((g["RMSE"] ** 2 * g["N"]).sum() / g["N"].sum()),
+            "Mean_NRMSE_%": g["NRMSE_%"].mean(skipna=True),
             "Mean_MAE": g["MAE"].mean(),
             "Max_AbsError": g["MaxAbsError"].max(),
             "Max_AbsError_DAY": int(g.loc[g["MaxAbsError"].idxmax(), "DAY"]),
@@ -218,18 +251,25 @@ def main():
             (summary_all["RMSE"] ** 2 * summary_all["N"]).sum() / summary_all["N"].sum()
         )),
         "Simple_RMSE": simple_rmse_overall,
+        "Mean_NRMSE_%": summary_all["NRMSE_%"].mean(skipna=True),
         "Mean_MAE": summary_all["MAE"].mean(),
         "Max_AbsError": summary_all["MaxAbsError"].max(),
         "Mean_R2": summary_all["R2"].mean(skipna=True),
         "Mean_NSE": summary_all["NSE"].mean(skipna=True),
     }, name="ALL_SPECIES_ALL_DAYS")
 
+    # Cation-only and anion-only aggregates
+    group_agg = pd.DataFrame([
+        compute_group_metrics(summary_all, paired_all, label, members)
+        for label, members in SPECIES_GROUPS
+    ])
+
     worst_idx = paired_all.groupby("Species")["ABS_ERROR"].idxmax()
     worst_points = paired_all.loc[
         worst_idx, ["Species", "DAY", "Y", "REF_INTERP", "SIM", "ABS_ERROR"]
     ].reset_index(drop=True)
 
-    report = build_report(summary_all, agg, overall, worst_points)
+    report = build_report(summary_all, agg, group_agg, overall, worst_points)
     print(report)
 
     txt_path = os.path.join(here, OUT_TXT)
@@ -240,6 +280,7 @@ def main():
     with pd.ExcelWriter(out_path, engine="openpyxl") as writer:
         summary_all.to_excel(writer, sheet_name="METRICS_SUMMARY", index=False)
         agg.to_excel(writer, sheet_name="METRICS_AGGREGATE")
+        group_agg.to_excel(writer, sheet_name="METRICS_BY_GROUP", index=False)
         overall.to_frame().T.to_excel(writer, sheet_name="METRICS_OVERALL", index=False)
         worst_points.to_excel(writer, sheet_name="WORST_POINT_PER_SPECIES", index=False)
         paired_all.to_excel(writer, sheet_name="PAIRED_POINTWISE", index=False)

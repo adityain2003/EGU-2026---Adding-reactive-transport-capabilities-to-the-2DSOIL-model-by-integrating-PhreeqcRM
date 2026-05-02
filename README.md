@@ -125,8 +125,8 @@ Run order:
    saves "(c)" figure.
 4. `ERROR_CALCULATION.py` — reads the new dense columns, computes per-day
    RMSE / MAE / MaxAbsError / MBE / NRMSE / R² / NSE on N=437 paired depths,
-   plus per-case and overall aggregates (Mean / Pooled / Simple RMSE).
-   Outputs `RESULTS_BENCHMARKING_ERROR_METRICS.{txt,xlsx}`.
+   plus per-case and overall aggregates (Mean / Pooled / Simple RMSE and
+   Mean NRMSE_%). Outputs `RESULTS_BENCHMARKING_ERROR_METRICS.{txt,xlsx}`.
 5. `PHREEQC_BENCHMARKING_COMBINED_FIGURE.py` — 3-panel publication figure
    (a) (b) (c), saved to `FIGURES/` in PNG (300/600 DPI), PDF, SVG, and EPS.
 
@@ -234,8 +234,9 @@ via `RUN_ALL.bat` or sequentially:
 
 1. `ERROR_CALCULATION_CATION_EXCHANGE.py` — per-species, per-day RMSE / MAE
    / MaxAE / MBE / NRMSE / R² / NSE / MAPE / SMAPE for all 5 species
-   (Ca²⁺, Cl⁻, Na⁺, K⁺, NO₃⁻) over days 1–3, plus per-species and overall
-   aggregates (Mean / Pooled / Simple RMSE). The IPhreeqc reference is
+   (Ca²⁺, Cl⁻, Na⁺, K⁺, NO₃⁻) over days 1–3, plus per-species, per-group
+   (cations vs anions), and overall aggregates (Mean / Pooled / Simple
+   RMSE and Mean NRMSE_%). The IPhreeqc reference is
    linearly interpolated from its cell-centered grid (0.5–99.5 cm) onto
    the simulated node grid (0–100 cm) before metrics are computed; values
    ≤ 0.01 mmol/L on either side are masked out (avoid MAPE blow-up).
@@ -251,7 +252,6 @@ via `RUN_ALL.bat` or sequentially:
 Workbook used by the pipeline: `RESULTS_100cm_1cm_ALL_NODES.xlsx` in the
 same folder (a copy of one of the comparison spreadsheets in
 `IPHREEQC_FILES/`).
-- `ERROR.xlsx` — aggregated metrics.
 
 ---
 

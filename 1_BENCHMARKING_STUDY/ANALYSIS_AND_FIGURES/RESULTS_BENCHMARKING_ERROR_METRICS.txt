@@ -18,16 +18,17 @@ CASE_3    2 437 0.000800008 0.000720082   0.00160305 -0.000720082  0.0925034 0.9
 CASE_3    3 437 0.000689503 0.000649539   0.00259749 -0.000567454  0.0848402 0.999998 0.999993
 
 Aggregate metrics per case (across DAY 1, 2, 3):
-         Mean_RMSE  Pooled_RMSE  Simple_RMSE    Mean_MAE  Max_AbsError  Max_AbsError_DAY  Mean_R2  Mean_NSE
-CASE                                                                                                       
-CASE_1 0.000496952  0.000668788  0.000668788 0.000325427     0.0075911                 3 0.999998  0.999996
-CASE_2 0.000642522  0.000654519  0.000654519  0.00047625    0.00383099                 3 0.999999  0.999996
-CASE_3 0.000902431  0.000930667  0.000930667 0.000804928    0.00259749                 3 0.999998  0.999989
+         Mean_RMSE  Pooled_RMSE  Simple_RMSE  Mean_NRMSE_%    Mean_MAE  Max_AbsError  Max_AbsError_DAY  Mean_R2  Mean_NSE
+CASE                                                                                                                     
+CASE_1 0.000496952  0.000668788  0.000668788     0.0502465 0.000325427     0.0075911                 3 0.999998  0.999996
+CASE_2 0.000642522  0.000654519  0.000654519     0.0644603  0.00047625    0.00383099                 3 0.999999  0.999996
+CASE_3 0.000902431  0.000930667  0.000930667      0.103051 0.000804928    0.00259749                 3 0.999998  0.999989
 
 Overall metrics across ALL cases and ALL days (9 case-day combinations):
 Mean_RMSE      0.000680635
 Pooled_RMSE    0.000761974
 Simple_RMSE    0.000761974
+Mean_NRMSE_%     0.0725861
 Mean_MAE       0.000535535
 Max_AbsError     0.0075911
 Mean_R2           0.999999
