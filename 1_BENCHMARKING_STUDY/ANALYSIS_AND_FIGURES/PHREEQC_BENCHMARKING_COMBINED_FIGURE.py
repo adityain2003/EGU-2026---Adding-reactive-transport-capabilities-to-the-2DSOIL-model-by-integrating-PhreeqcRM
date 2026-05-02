@@ -65,13 +65,18 @@ def panel(ax, df, title, label, rates):
     ax.grid(True, color="gray", alpha=0.3, linewidth=0.5)
     ax.minorticks_on()
 
-    # Rate constants for this case in a rounded white box.
-    n_lines = len(rates)
+    # Per-day depth-averaged simulated concentration for this case.
+    day_means = [(t, df[df["DAY"] == t]["CONC_RATIO_SIMULATED"].mean()) for t in DAYS]
+    mean_lines = [f"Day {t} $\\bar{{C}}$ = {m:.2f}" for t, m in day_means]
+
+    # Rate constants + per-day means in a rounded white box.
+    box_lines = list(rates) + mean_lines
+    n_lines = len(box_lines)
     line_step = 0.063          # vertical spacing between lines (axes coords)
     pad_top = 0.040            # padding from top of box to top of first line
     pad_bot = 0.020            # padding from bottom of last line to box bottom
-    box_x, box_y = 0.56, 0.06
-    box_w = 0.40
+    box_x, box_y = 0.50, 0.06
+    box_w = 0.46
     box_h = pad_top + pad_bot + n_lines * line_step
 
     ax.add_patch(FancyBboxPatch(
@@ -82,9 +87,9 @@ def panel(ax, df, title, label, rates):
         clip_on=False, zorder=10,
     ))
     line_top_y = box_y + box_h - pad_top
-    for i, rate in enumerate(rates):
+    for i, line in enumerate(box_lines):
         ax.text(box_x + box_w / 2, line_top_y - i * line_step,
-                rate, transform=ax.transAxes,
+                line, transform=ax.transAxes,
                 fontsize=24, weight="normal",
                 ha="center", va="top", color="black", zorder=11)
 
