@@ -58,6 +58,8 @@ def panel(ax, df, title, label, rates):
 
     ax.set_xlabel("Concentration (mols/l)", fontsize=24, labelpad=10)
     ax.set_xlim(-0.001, 1.0)
+    ax.set_xticks([0.0, 0.5, 1.0])
+    ax.set_xticklabels(["0.0", "0.5", "1.0"])
     ax.set_ylim(0, 750)
     ax.set_yticks([0, 100, 200, 300, 400, 500, 600, 700, 750])
     ax.set_clip_on(True)
