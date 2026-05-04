@@ -3,8 +3,10 @@
 Companion repository for the EGU 2026 conference presentation. It contains
 self-contained codebases that exercise a coupled **2DSOIL ↔ PhreeqcRM**
 reactive-transport model and verify it against independent references —
-analytical solutions for simple kinetics, and PHREEQC's standalone
-transport solver (IPhreeqc) for multi-species cation-exchange columns.
+analytical solutions for simple kinetics, PHREEQC's standalone transport
+solver (IPhreeqc) for multi-species cation-exchange columns, and
+field-observed nitrogen leaching for a layered kinetic biogeochemistry
+study.
 
 The repository is organised as a monorepo. Each top-level numbered folder
 is one self-contained study / codebase, with its own modified Fortran glue,
@@ -15,16 +17,22 @@ its own `.pqi` chemistry inputs, and its own pre-built binaries.
 ├── 1_BENCHMARKING_STUDY/         codebase 1: analytical-solution benchmark
 │                                 (3 cases: conservative, 1st-order decay,
 │                                 1st-order decay + 0-order production)
-└── 2_CATION_EXCHANGE_PROBLEM/    codebase 2: 5-species cation-exchange
-                                  column (Ca / Cl / Na / K / NO3) with
-                                  exchanger X, benchmarked against IPhreeqc
+├── 2_CATION_EXCHANGE_PROBLEM/    codebase 2: 5-species cation-exchange
+│                                 column (Ca / Cl / Na / K / NO3) with
+│                                 exchanger X, benchmarked against IPhreeqc
+└── 3_NITRATE_LEACHING/           codebase 3: Murphy sand N leaching, 8-layer
+                                  × 50-cell column with first-order kinetics
+                                  for organic-N → NH4 → NO3 → N2O across 7
+                                  scenarios (NR / ZK / ZK_ND / FK / FK_ND /
+                                  CK / CK_ND), benchmarked against field-
+                                  observed leaching data
 ```
 
-> **Important:** the two codebases share a directory layout, but the
+> **Important:** the three codebases share a directory layout, but the
 > Fortran glue (`PhreeqcRM.FOR`, `FERTIGATION.FOR`, `2DMAIZSIM.FOR`),
 > the `.pqi` chemistry inputs, and the post-processing scripts are
 > **different** — do not assume something in `2_…/` works the same way
-> as in `1_…/`.
+> as in `1_…/`, or that `3_…/` matches either of them.
 
 ---
 
@@ -255,13 +263,178 @@ same folder (a copy of one of the comparison spreadsheets in
 
 ---
 
+## 3_NITRATE_LEACHING — Murphy sand N leaching, kinetic-variant comparison
+
+A field-experiment-benchmarked study of nitrate leaching from a sandy
+soil profile under low-frequency irrigation. Eight soil layers (10 cm
+each, 80–0 cm depth, 50 cells per layer = 400 cells total) carry a
+four-species nitrogen system (organic-N → ammonium → nitrate → nitrous
+gas) driven by layer-specific kinetic mineralisation, nitrification,
+and denitrification. The 2DSOIL ↔ PhreeqcRM result is benchmarked
+**against field-observed leaching data** from the Murphy sand
+low-frequency-irrigation experiment — the first codebase in this repo
+to use experimental data as its reference (vs analytical solutions in
+codebase 1 and IPhreeqc in codebase 2).
+
+Seven kinetic scenarios are compared:
+
+| Code   | Description                                                      |
+|--------|------------------------------------------------------------------|
+| NR     | No-reaction control (transport only)                             |
+| ZK     | Zero-order mineralisation / nitrification / denitrification      |
+| ZK_ND  | Zero-order without denitrification                               |
+| FK     | First-order mineralisation / nitrification / denitrification     |
+| FK_ND  | First-order without denitrification                              |
+| CK     | Conditional kinetics (water-content factor on mineralisation)    |
+| CK_ND  | Conditional without denitrification                              |
+
+### Layout
+
+```
+3_NITRATE_LEACHING/
+├── HOW_TO_RUN_2DSOIL-PHREEQCRM.txt
+├── PHREEQCRM_RUNFILE_NITRATE_LEACHING_FIRST_ORDER.pqi   Top-level reference copy
+├── 2DSOIL-PHREEQCRM_MURPHY_SAND_LF/                     Analysis + per-scenario run dirs
+│   ├── NR/, ZK/, ZK_ND/, FK/, FK_ND/, CK/, CK_ND/       Self-contained 2DSOIL run dirs (one per scenario)
+│   ├── MASS_BALANCE_PHREEQC_<SCENARIO>.txt              Per-scenario N mass-balance log
+│   ├── OBSERVED_DATA.xlsx                               Murphy field observations
+│   ├── COMPARISON_OF_RESULTS.xlsx                       Per-scenario RMSE summary
+│   ├── PYTHON_MURPHY_SAND_LF_VISUALIZATION_V3.py        Visualization script
+│   └── Figure_1/2/3*.png                                Pre-rendered publication figures
+└── Maizsim_PhreeqcRM/
+    ├── soil source/      2DSOIL (Fortran) — see "Differences from codebases 1/2"
+    ├── crop source/      MAIZSIM (C++)
+    ├── PHREEQCRM/        PhreeqcRM library source (vendored)
+    ├── PHREEQCRM_BUILD/  built DLLs / LIBs / databases
+    └── 3_maizsim07_PHREEQCRM.sln                        Note: numeric prefix (codebases 1/2 use the bare name)
+```
+
+### Chemistry (`PHREEQCRM_RUNFILE_NITRATE_LEACHING_*.pqi`)
+
+Custom species (no thermodynamic database used — the species are inert
+solutes whose totals are tracked through 2DSOIL transport and updated
+each step by PhreeqcRM kinetics):
+
+| Species         | GFW (g/mol) | Role                                                              |
+|-----------------|-------------|-------------------------------------------------------------------|
+| `[ORGANIC_N]`   | 14.01       | Substrate for mineralisation                                      |
+| `[AMMONIUM]`    | 18.04       | Mineralisation product, nitrification substrate                   |
+| `[NITRATE]`     | 62.01       | Nitrification product, denitrification substrate, leached species |
+| `[NITROUS_GAS]` | 44.01       | Denitrification product (gas)                                     |
+| `[THETA_VMC]`   | 1.00        | Volumetric water-content tracer (used in conditional rate factors)|
+
+Eight 10-cm layers (indexed bottom-up: layer 1 = 80–70 cm, layer 8 = 10–0 cm),
+50 cells per layer (400 cells total). Each layer has its own first-order
+rate constants for the three transformations; nitrification rate is uniform
+across layers (6.66 × 10⁻⁶ /s in the FK file), while mineralisation and
+denitrification rate constants are layer-specific.
+
+### Differences from codebases 1 and 2 (do not assume parity)
+
+- **`PhreeqcRM.FOR`** has the runfile **hardcoded** to
+  `"PHREEQCRM_RUNFILE_NITRATE_LEACHING_CONDITIONAL_KINETICS.pqi"` (lines 247
+  and 826) — same convention as codebase 2, no `PHREEQCRM_FILENAME.txt`
+  driver exists. The pre-built `2dMAIZSIM.exe` therefore reproduces the
+  **CK** scenario; switch scenarios by editing the literal at those two
+  lines and rebuilding.
+- **Leached-N output** is written to `DELHI_MURPHY.G05` (column `N_Leach`)
+  per scenario, one G05 per scenario subfolder under
+  `2DSOIL-PHREEQCRM_MURPHY_SAND_LF/`. The visualization joins these G05
+  files with the per-step PhreeqcRM mass-balance logs to compute cumulative
+  leached / nitrified / denitrified / mineral-N curves.
+- **Per-scenario run directories** (`NR/`, `ZK/`, `ZK_ND/`, `FK/`, `FK_ND/`,
+  `CK/`, `CK_ND/`) under `2DSOIL-PHREEQCRM_MURPHY_SAND_LF/` are each a
+  self-contained 2DSOIL working set: `Run.dat`, `Water.dat`,
+  `WatMovParam.DAT`, `DELHI_MURPHY*.dat`, `GridGenDll.dll`,
+  `createSoilFiles.exe`, `Rosetta.exe`, plus the post-run outputs
+  `DELHI_MURPHY.G03 / .G04 / .G05 / .G06 / .G07`.
+- **VS solution file** is `3_maizsim07_PHREEQCRM.sln` (numeric prefix);
+  codebases 1/2 use the bare `maizsim07_PHREEQCRM.sln`.
+- **VS `WorkingDirectory` per-user fix** is required on a fresh clone —
+  the `2dMAIZSIM.vfproj.<USER>.user` files are NOT tracked for codebase 3
+  (they ARE for codebases 1/2). See "Running the pre-built `2dMAIZSIM.exe`
+  → From Visual Studio" below.
+
+### Variant `.pqi` runfiles checked in
+
+In `Maizsim_PhreeqcRM/soil source/x64/Debug/`:
+
+| File                                                                  | Scenario              |
+|-----------------------------------------------------------------------|-----------------------|
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_NO_REACTION.pqi`                  | NR                    |
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_ZERO_ORDER.pqi`                   | ZK                    |
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_ZERO_ORDER_NO_DENIT.pqi`          | ZK_ND                 |
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_FIRST_ORDER.pqi`                  | FK                    |
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_FIRST_ORDER_NO_DENIT.pqi`         | FK_ND                 |
+| **`PHREEQCRM_RUNFILE_NITRATE_LEACHING_CONDITIONAL_KINETICS.pqi`**     | **CK (active)**       |
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_CONDITIONAL_KINETICS_NO_DENIT.pqi`| CK_ND                 |
+| `PHREEQCRM_RUNFILE_NITRATE_LEACHING_FIRST_ORDER_CALIBRATED.pqi`       | Calibrated FK variant |
+| `PHREEQCRM_RUNFILE_BASIC_KINETICS_27_11_2024.pqi`                     | Earlier kinetics-only experiment |
+| `PHREEQCRM_RUNFILE.pqi`                                               | Generic / template    |
+
+### Reference data (field observations)
+
+In `2DSOIL-PHREEQCRM_MURPHY_SAND_LF/`:
+
+| File                                                  | Purpose                                                                          |
+|-------------------------------------------------------|----------------------------------------------------------------------------------|
+| `OBSERVED_DATA.xlsx` (sheet `OBSERVED_N_LEACHED_DATA`) | Murphy sand experimental field N-leaching observations                           |
+| `MURPHY's SIMULATION_SAND_LOW_FREQUENCY.xlsx`         | Reference simulation / experimental data from the Murphy study                   |
+| `COMPARISON_OF_RESULTS.xlsx` (sheet `RMSE`)           | Per-scenario RMSE and side-by-side comparison                                    |
+| `RESULT_COMPARISON.docx`                              | Narrative summary of comparison results                                          |
+| `MASS_BALANCE_PHREEQC_<SCENARIO>.txt`                 | Time-stepped delta-nitrified, delta-denitrified, residual mineral-N (one/scenario)|
+
+### Run scenario
+
+Per `HOW_TO_RUN_2DSOIL-PHREEQCRM.txt`:
+
+- The PhreeqcRM `.pqi` provides chemistry initialisation and per-step
+  kinetics; three rate-law variants (zero / first / conditional) plus
+  their no-denitrification counterparts and a no-reaction control.
+- 2DSOIL writes nitrate leached at each step to `DELHI_MURPHY.G05`
+  (column `N_Leach`) in the scenario subfolder.
+- Total leached N for the run is the sum of all per-step `N_Leach`
+  values.
+- Three water-application events occur on day 1 (WA#1), day 9 (WA#2),
+  and day 23 (WA#3) — annotated on Figure 1.
+
+### Analysis pipeline + figures
+
+All consolidated under `2DSOIL-PHREEQCRM_MURPHY_SAND_LF/`. Run via:
+
+```
+python PYTHON_MURPHY_SAND_LF_VISUALIZATION_V3.py
+```
+
+The script reads:
+
+- `MASS_BALANCE_PHREEQC_<SCENARIO>.txt` for each of the 7 scenarios
+- `<SCENARIO>/DELHI_MURPHY.G05` for each of the 7 scenarios
+- `OBSERVED_DATA.xlsx` (sheet `OBSERVED_N_LEACHED_DATA`)
+- `COMPARISON_OF_RESULTS.xlsx` (sheet `RMSE`)
+
+…and produces three publication figures:
+
+1. **`Figure_1_COMBINED_LEACHING_RESIDUAL_NO3_TIMELINE.png`** — 2-panel
+   time-series. (a) Cumulative NO₃-N leached vs day, observed (scatter)
+   vs 7 scenarios (lines), with WA#1/2/3 water-application annotations.
+   (b) Soil NO₃-N (mineral pool) vs day, all 7 scenarios.
+2. **`Figure_2_COMBINED_RESIDUAL_LEACHED_MINERALIZED_DENITRIFIED_FINAL.png`** —
+   2-panel bar chart of end-of-run quantities. (a) Stacked bar — leached
+   + soil NO₃-N per scenario + observed. (b) Grouped bar — total
+   nitrification + total denitrification per scenario + observed.
+3. **`Figure_3_RMSE.png`** — Horizontal bar of per-scenario RMSE against
+   the observed leaching curve, with a console-printed ranking table.
+
+---
+
 ## Running the pre-built `2dMAIZSIM.exe`
 
-Both codebases ship a pre-built executable so you can reproduce the runs
-without rebuilding. The executable reads **all of its inputs from the current
-working directory** (run controllers, `.pqi` chemistry runfile, PHREEQC
-databases, the fertigation schedule, the `TEST_CASE_BM*/` folders, etc.) and
-writes its outputs into the same place.
+All three codebases ship a pre-built executable so you can reproduce the
+runs without rebuilding. The executable reads **all of its inputs from the
+current working directory** (run controllers, `.pqi` chemistry runfile,
+PHREEQC databases, the fertigation schedule, the `TEST_CASE_BM*/` folders,
+etc.) and writes its outputs into the same place.
 
 ### From a terminal or Explorer
 
@@ -274,6 +447,10 @@ cd "1_BENCHMARKING_STUDY/Maizsim_PhreeqcRM/soil source/x64/Debug"
 
 # Codebase 2
 cd "2_CATION_EXCHANGE_PROBLEM/Maizsim_PhreeqcRM/soil source/x64/Debug"
+./2dMAIZSIM.exe
+
+# Codebase 3 — runs the CK (conditional-kinetics) scenario by default
+cd "3_NITRATE_LEACHING/Maizsim_PhreeqcRM/soil source/x64/Debug"
 ./2dMAIZSIM.exe
 ```
 
@@ -318,6 +495,7 @@ folder, because the Fortran sources differ between studies:
 
 - `1_BENCHMARKING_STUDY/Maizsim_PhreeqcRM/maizsim07_PHREEQCRM.sln`
 - `2_CATION_EXCHANGE_PROBLEM/Maizsim_PhreeqcRM/maizsim07_PHREEQCRM.sln`
+- `3_NITRATE_LEACHING/Maizsim_PhreeqcRM/3_maizsim07_PHREEQCRM.sln` (numeric prefix)
 
 PhreeqcRM has its own build folder `PHREEQCRM_BUILD/` inside each codebase
 (CMake-generated VS solution).
