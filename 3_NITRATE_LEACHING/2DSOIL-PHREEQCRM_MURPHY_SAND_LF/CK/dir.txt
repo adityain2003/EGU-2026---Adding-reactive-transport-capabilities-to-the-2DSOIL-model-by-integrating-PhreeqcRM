@@ -1,0 +1,51 @@
+ Volume in drive C is OS
+ Volume Serial Number is 6A16-334B
+
+ Directory of C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\soil source\x64\Debug\PHREEQC_MURPHY_SAND_FIRST_ORDER_REACTION
+
+08/06/2025  04:24 PM    <DIR>          .
+08/06/2025  03:49 PM    <DIR>          ..
+08/04/2025  01:41 PM             2,673 16Lvs.var
+08/04/2025  01:42 PM                 0 2DSOIL03.LOG
+08/04/2025  01:41 PM               389 BiologyDefault.bio
+08/06/2025  04:24 PM                 0 createError.log
+09/19/2024  04:41 PM           439,296 createSoilFiles.exe
+08/04/2025  01:41 PM               671 DELHI_MURPHY.dat
+08/04/2025  01:41 PM               154 DELHI_MURPHY.drp
+08/04/2025  01:42 PM               742 DELHI_MURPHY.g01
+08/06/2025  04:17 PM            79,397 DELHI_MURPHY.G03
+08/06/2025  04:17 PM               145 DELHI_MURPHY.G04
+08/06/2025  04:17 PM               828 DELHI_MURPHY.G05
+08/06/2025  04:17 PM               599 DELHI_MURPHY.G06
+08/06/2025  04:17 PM            60,195 DELHI_MURPHY.G07
+08/06/2025  04:24 PM            15,568 DELHI_MURPHY.grd
+08/04/2025  01:41 PM               639 DELHI_MURPHY.ini
+08/06/2025  01:45 PM               515 DELHI_MURPHY.irr
+08/06/2025  04:24 PM             4,570 DELHI_MURPHY.lyr
+08/04/2025  01:42 PM               784 DELHI_MURPHY.man
+08/04/2025  01:41 PM             1,831 DELHI_MURPHY.nit
+08/06/2025  04:24 PM            35,285 DELHI_MURPHY.nod
+08/04/2025  01:41 PM               527 DELHI_MURPHY.tim
+08/06/2025  04:24 PM               560 DELHI_MURPHY_SOIL.dat
+08/06/2025  04:24 PM                 0 DELHI_MURPHY_SOIL.soi
+08/04/2025  01:41 PM               577 DELHI_MURPHY_WEATHER.cli
+08/04/2025  01:41 PM            32,714 DELHI_MURPHY_WEATHER.wea
+08/06/2025  04:24 PM                 0 dir.txt
+08/04/2025  01:41 PM               388 GasID.gas
+08/06/2025  11:43 AM               325 grid1 - Copy.bat
+08/01/2025  12:28 PM               285 grid1.bat
+01/26/2023  06:51 PM         1,762,816 GridGenDll.dll
+08/04/2025  01:42 PM            15,161 MassBI.out
+08/06/2025  04:17 PM               120 MassBlMulch.out
+08/06/2025  04:17 PM               272 MassBlRunOff.out
+08/04/2025  01:42 PM             1,479 MulchGeo.mul
+08/04/2025  01:41 PM               839 NitrogenDefault.sol
+01/26/2023  06:51 PM         2,506,240 Rosetta.exe
+08/06/2025  04:24 PM                 0 Rosetta.log
+08/06/2025  10:25 AM             1,817 Run.dat
+07/31/2025  10:18 AM            89,544 TEST_FILE_WEATHER.csv
+05/17/2021  04:30 PM           173,568 vangenuch.xls
+02/01/2007  03:08 PM               153 Water.dat
+08/04/2025  01:41 PM               245 WatMovParam.DAT
+              42 File(s)      5,231,911 bytes
+               2 Dir(s)  685,547,249,664 bytes free

@@ -1,0 +1,876 @@
+------------------------------------
+Reading input data for simulation 1.
+------------------------------------
+
+	 SOLUTION_MASTER_SPECIES
+	 [ORGANIC_N]			[ORGANIC_N]			0	[ORGANIC_N]		14.01
+	 [AMMONIUM]			[AMMONIUM]			0	[AMMONIUM]		18.04
+	 [NITRATE]			[NITRATE]			0	[NITRATE]		62.01
+	 [NITROUS_GAS]			[NITROUS_GAS]			0	[NITROUS_GAS]		44.01
+	 [THETA_VMC]			[THETA_VMC]			0	[THETA_VMC]		1.00
+	 SOLUTION_SPECIES
+	 	[ORGANIC_N]    	    =   [ORGANIC_N]
+			log_k	0.0	
+	 	[AMMONIUM]    	    =   [AMMONIUM]
+			log_k	0.0
+	 	[NITRATE]    	    =   [NITRATE]
+			log_k	0.0
+	 	[NITROUS_GAS]      =    [NITROUS_GAS]
+			log_k	0.0
+		[THETA_VMC]      =   	[THETA_VMC]
+			log_k	0.0
+	 END
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 2.
+------------------------------------
+
+	 SOLUTION 1-50	# LAYER 1: 80-70 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.03513	# OBTAINED BY TAKING CONCENTRATION OF ORGANIC-N IN mg/Kg OF SOIL AND MULTIPLY WITH BULK DENSITY AND CONVERTING TO MOL
+	 [AMMONIUM] 8.65E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 1.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        8.655e-05   8.655e-05
+	[ORGANIC_N]       3.515e-02   3.515e-02
+	[THETA_VMC]       8.005e-02   8.005e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99762
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.998
+                 Ionic strength (mol/kgw)  =   1.005e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.018e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.018e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.51
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.010e-07    -6.995    -6.996    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.980e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.082   -42.082     0.000     30.40
+[AMMONIUM]    8.655e-05
+   [AMMONIUM]      8.655e-05   8.655e-05    -4.063    -4.063     0.000     (0)  
+[ORGANIC_N]   3.515e-02
+   [ORGANIC_N]     3.515e-02   3.515e-02    -1.454    -1.454     0.000     (0)  
+[THETA_VMC]   8.005e-02
+   [THETA_VMC]     8.005e-02   8.005e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 3.
+------------------------------------
+
+	 SOLUTION 51-100  # LAYER 2: 70-60 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.029406237
+	 [AMMONIUM] 2.92E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 51.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        2.921e-05   2.921e-05
+	[ORGANIC_N]       2.942e-02   2.942e-02
+	[THETA_VMC]       8.004e-02   8.004e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99753
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.998
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.028e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.028e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.51
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.010e-07    -6.995    -6.996    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.981e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.082   -42.082     0.000     30.40
+[AMMONIUM]    2.921e-05
+   [AMMONIUM]      2.921e-05   2.921e-05    -4.534    -4.534     0.000     (0)  
+[ORGANIC_N]   2.942e-02
+   [ORGANIC_N]     2.942e-02   2.942e-02    -1.531    -1.531     0.000     (0)  
+[THETA_VMC]   8.004e-02
+   [THETA_VMC]     8.004e-02   8.004e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 4.
+------------------------------------
+
+	 SOLUTION 101-150  # LAYER 3: 60-50 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.012366689
+	 [AMMONIUM] 2.28E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 101.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        2.281e-05   2.281e-05
+	[ORGANIC_N]       1.237e-02   1.237e-02
+	[THETA_VMC]       8.002e-02   8.002e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99730
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.998
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.057e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.057e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.53
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.011e-07    -6.995    -6.995    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.984e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.081   -42.081     0.000     30.40
+[AMMONIUM]    2.281e-05
+   [AMMONIUM]      2.281e-05   2.281e-05    -4.642    -4.642     0.000     (0)  
+[ORGANIC_N]   1.237e-02
+   [ORGANIC_N]     1.237e-02   1.237e-02    -1.908    -1.908     0.000     (0)  
+[THETA_VMC]   8.002e-02
+   [THETA_VMC]     8.002e-02   8.002e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 5.
+------------------------------------
+
+	 SOLUTION 151-200  # LAYER 4: 50-40 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.006331929
+	 [AMMONIUM] 3.41E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 151.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        3.411e-05   3.411e-05
+	[ORGANIC_N]       6.333e-03   6.333e-03
+	[THETA_VMC]       8.001e-02   8.001e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99721
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.999
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.068e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.068e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.53
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.011e-07    -6.995    -6.995    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.985e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.081   -42.081     0.000     30.40
+[AMMONIUM]    3.411e-05
+   [AMMONIUM]      3.411e-05   3.411e-05    -4.467    -4.467     0.000     (0)  
+[ORGANIC_N]   6.333e-03
+   [ORGANIC_N]     6.333e-03   6.333e-03    -2.198    -2.198     0.000     (0)  
+[THETA_VMC]   8.001e-02
+   [THETA_VMC]     8.001e-02   8.001e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 6.
+------------------------------------
+
+	 SOLUTION 201-250  # LAYER 5: 40-30 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.002973566
+	 [AMMONIUM] 1.67E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 201.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        1.670e-05   1.670e-05
+	[ORGANIC_N]       2.974e-03   2.974e-03
+	[THETA_VMC]       8.001e-02   8.001e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99716
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.999
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.073e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.073e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.53
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.011e-07    -6.995    -6.995    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.986e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.081   -42.081     0.000     30.40
+[AMMONIUM]    1.670e-05
+   [AMMONIUM]      1.670e-05   1.670e-05    -4.777    -4.777     0.000     (0)  
+[ORGANIC_N]   2.974e-03
+   [ORGANIC_N]     2.974e-03   2.974e-03    -2.527    -2.527     0.000     (0)  
+[THETA_VMC]   8.001e-02
+   [THETA_VMC]     8.001e-02   8.001e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 7.
+------------------------------------
+
+	 SOLUTION 251-300  # LAYER 6: 30-20 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.003575453
+	 [AMMONIUM] 2.12E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 251.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        2.120e-05   2.120e-05
+	[ORGANIC_N]       3.576e-03   3.576e-03
+	[THETA_VMC]       8.001e-02   8.001e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99717
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.999
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.072e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.072e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.53
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.011e-07    -6.995    -6.995    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.986e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.081   -42.081     0.000     30.40
+[AMMONIUM]    2.120e-05
+   [AMMONIUM]      2.120e-05   2.120e-05    -4.674    -4.674     0.000     (0)  
+[ORGANIC_N]   3.576e-03
+   [ORGANIC_N]     3.576e-03   3.576e-03    -2.447    -2.447     0.000     (0)  
+[THETA_VMC]   8.001e-02
+   [THETA_VMC]     8.001e-02   8.001e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 8.
+------------------------------------
+
+	 SOLUTION 301-350  # LAYER 7: 20-10 cm
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.006685164
+	 [AMMONIUM] 2.97E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 301.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        2.971e-05   2.971e-05
+	[ORGANIC_N]       6.686e-03   6.686e-03
+	[THETA_VMC]       8.001e-02   8.001e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99722
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.999
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.067e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.067e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.53
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.011e-07    -6.995    -6.995    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.985e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.081   -42.081     0.000     30.40
+[AMMONIUM]    2.971e-05
+   [AMMONIUM]      2.971e-05   2.971e-05    -4.527    -4.527     0.000     (0)  
+[ORGANIC_N]   6.686e-03
+   [ORGANIC_N]     6.686e-03   6.686e-03    -2.175    -2.175     0.000     (0)  
+[THETA_VMC]   8.001e-02
+   [THETA_VMC]     8.001e-02   8.001e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+------------------------------------
+Reading input data for simulation 9.
+------------------------------------
+
+	 SOLUTION 351-400  # LAYER 8: 10-0 cm # BOTTOM LAYER
+	 units   mol/l
+	 density 1
+	 [ORGANIC_N] 0.006843311
+	 [AMMONIUM] 3.76E-05
+	 [THETA_VMC] 0.08
+	 END
+-------------------------------------------
+Beginning of initial solution calculations.
+-------------------------------------------
+
+Initial solution 351.	
+
+-----------------------------Solution composition------------------------------
+
+	Elements           Molality       Moles
+
+	[AMMONIUM]        3.761e-05   3.761e-05
+	[ORGANIC_N]       6.845e-03   6.845e-03
+	[THETA_VMC]       8.001e-02   8.001e-02
+
+----------------------------Description of solution----------------------------
+
+                                       pH  =   7.000    
+                                       pe  =   4.000    
+      Specific Conductance (µS/cm,  25°C)  = 0
+                          Density (g/cm³)  =   0.99722
+                               Volume (L)  =   1.00297
+                        Viscosity (mPa s)  =   0.89002
+                        Activity of water  =   0.999
+                 Ionic strength (mol/kgw)  =   1.006e-07
+                       Mass of water (kg)  =   1.000e+00
+                 Total alkalinity (eq/kg)  =   1.067e-09
+                         Temperature (°C)  =  25.00
+                  Electrical balance (eq)  =  -1.067e-09
+ Percent error, 100*(Cat-|An|)/(Cat+|An|)  =  -0.53
+                               Iterations  =   3
+                                  Total H  = 1.110124e+02
+                                  Total O  = 5.550622e+01
+
+----------------------------Distribution of species----------------------------
+
+                                               Log       Log       Log    mole V
+   Species          Molality    Activity  Molality  Activity     Gamma   cm³/mol
+
+   OH-             1.011e-07   1.011e-07    -6.995    -6.995    -0.000     -4.14
+   H+              1.000e-07   1.000e-07    -7.000    -7.000    -0.000      0.00
+   H2O             5.551e+01   9.985e-01     1.744    -0.001     0.000     18.07
+H(0)          1.416e-25
+   H2              7.079e-26   7.079e-26   -25.150   -25.150     0.000     28.61
+O(0)          0.000e+00
+   O2              0.000e+00   0.000e+00   -42.081   -42.081     0.000     30.40
+[AMMONIUM]    3.761e-05
+   [AMMONIUM]      3.761e-05   3.761e-05    -4.425    -4.425     0.000     (0)  
+[ORGANIC_N]   6.845e-03
+   [ORGANIC_N]     6.845e-03   6.845e-03    -2.165    -2.165     0.000     (0)  
+[THETA_VMC]   8.001e-02
+   [THETA_VMC]     8.001e-02   8.001e-02    -1.097    -1.097     0.000     (0)  
+
+------------------------------Saturation indices-------------------------------
+
+  Phase               SI** log IAP   log K(298 K,   1 atm)
+
+  H2(g)           -22.05    -25.15   -3.10  H2
+  H2O(g)           -1.50     -0.00    1.50  H2O
+  O2(g)           -39.19    -42.08   -2.89  O2
+
+**For a gas, SI = log10(fugacity). Fugacity = pressure * phi / 1 atm.
+  For ideal gases, phi = 1.
+
+------------------
+End of simulation.
+------------------
+
+-------------------------------------
+Reading input data for simulation 10.
+-------------------------------------
+
+	 RATES
+		MINERALIZATION_LAYER_1
+		start
+		10 rate = MOL("[ORGANIC_N]")*1.36*1e-8	# FIRST ORDER REACTION FOR MINERALIZATION
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_1
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 	# FIRST ORDER REACTION FOR MINERALIZATION
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_1
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.2415) AND (MOL("[NITRATE]")>1.400E-09*TIME)) THEN rate = 1.400E-09 ELSE rate = 0.0 # ZERO ORDER REACTION FOR DENITRIFICATION
+		20 moles = 1*rate*TIME		
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_2
+		start
+		10 rate = MOL("[ORGANIC_N]")*1.11*1e-8 	
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_2
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		 
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_2
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.2415) AND (MOL("[NITRATE]")>6.028E-11*TIME)) THEN rate = 6.028E-11 ELSE rate = 0.0 
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_3
+		start
+		10 rate = MOL("[ORGANIC_N]")*8.61*1e-9 	# FIRST ORDER REACTION
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_3
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		
+		20 moles = 1*rate*TIME	
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_3
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.2415) AND (MOL("[NITRATE]")>9.944*1e-11*TIME)) THEN rate = 9.944*1e-11 ELSE rate = 0.0 
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_4
+		start
+		10 rate = MOL("[ORGANIC_N]")*3.72*1e-9 
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_4
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		
+		20 moles = 1*rate*TIME	
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_4
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.2415) AND (MOL("[NITRATE]")>1.176*1e-11*TIME)) THEN rate = 1.176*1e-11 ELSE rate = 0.0 
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_5
+		start
+		10 rate = MOL("[ORGANIC_N]")*3.14*1e-9 	
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_5
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		
+		20 moles = 1*rate*TIME	
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_5
+		start	
+		10 IF ((MOL("[THETA_VMC]")>0.2415) AND (MOL("[NITRATE]")>2.11*1e-11*TIME)) THEN rate = 2.11*1e-11 ELSE rate = 0.0
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_6
+		start
+		10 rate = MOL("[ORGANIC_N]")*0.00 	
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_6
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		
+		20 moles = 1*rate*TIME
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_6
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.2415) AND (MOL("[NITRATE]")>3.056*1e-11*TIME)) THEN rate = 3.056*1e-11 ELSE rate = 0.0 
+		20 moles = 1*rate*TIME		
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_7
+		start
+		10 rate = MOL("[ORGANIC_N]")*0.00 	
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_7
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		
+		20 moles = 1*rate*TIME	
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_7
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.224) AND (MOL("[NITRATE]")>9.917*1e-11*TIME)) THEN rate = 9.917*1e-11 ELSE rate = 0.0 
+		20 moles = 1*rate*TIME		
+		30 SAVE moles
+		end
+	 	MINERALIZATION_LAYER_8
+		start
+		10 rate = MOL("[ORGANIC_N]")*2.05*1e-9 	
+		20 WATER_FACTOR = (1/(1+6.63*EXP(-5.69*((TOT("[THETA_VMC]")-0.046)/(0.3355-0.046))))) 
+		30 moles = WATER_FACTOR*0.8*1*rate*TIME	
+		40 SAVE moles
+		end
+		NITRIFICATION_LAYER_8
+		start
+		10 rate = MOL("[AMMONIUM]")*6.66*1e-6 		
+		20 moles = 1*rate*TIME	
+		30 SAVE moles
+		end
+		DENITRIFICATION_LAYER_8
+		start
+		10 IF ((MOL("[THETA_VMC]")>0.224) AND (MOL("[NITRATE]")>8.05*1e-10*TIME)) THEN rate = 8.05*1e-10 ELSE rate = 0.0 
+		20 moles = 1*rate*TIME			
+		30 SAVE moles
+		end
+	 KINETICS 1-50
+		MINERALIZATION_LAYER_1
+		formula [ORGANIC_N] -1 [AMMONIUM] +1   	# DELTA = PRODUCT - REACTANT ( EXAMPLE: ORGANIC_N TO AMMONIUM ) 
+		NITRIFICATION_LAYER_1
+		formula [AMMONIUM] -1 [NITRATE] +1    		# DELTA = PRODUCT - REACTANT ( EXAMPLE: AMMONIUM TO NITRITE ) 
+		DENITRIFICATION_LAYER_1
+		formula [NITRATE] -1 [NITROUS_GAS] +0.5		# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITROGEN GAS )   
+	 END
+------------------
+End of simulation.
+------------------
+
+-------------------------------------
+Reading input data for simulation 11.
+-------------------------------------
+
+	 KINETICS 51-100
+		MINERALIZATION_LAYER_2
+		formula [ORGANIC_N] -1 [AMMONIUM] +1   	# DELTA = PRODUCT - REACTANT ( EXAMPLE: ORGANIC_N TO AMMONIUM ) 
+		NITRIFICATION_LAYER_2
+		formula [AMMONIUM] -1 [NITRATE] +1    		# DELTA = PRODUCT - REACTANT ( EXAMPLE: AMMONIUM TO NITRITE ) 
+		DENITRIFICATION_LAYER_2
+		formula [NITRATE] -1 [NITROUS_GAS] +0.5		# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITROGEN GAS )   
+	 END
+------------------
+End of simulation.
+------------------
+
+-------------------------------------
+Reading input data for simulation 12.
+-------------------------------------
+
+	 KINETICS 101-150
+		MINERALIZATION_LAYER_3
+		formula [ORGANIC_N] -1 [AMMONIUM] +1   	# DELTA = PRODUCT - REACTANT ( EXAMPLE: ORGANIC_N TO AMMONIUM ) 
+		NITRIFICATION_LAYER_3
+		formula [AMMONIUM] -1 [NITRATE] +1    		# DELTA = PRODUCT - REACTANT ( EXAMPLE: AMMONIUM TO NITRITE ) 
+		DENITRIFICATION_LAYER_3
+		formula [NITRATE] -1 [NITROUS_GAS] +0.5		# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITROGEN GAS )   
+	 END
+------------------
+End of simulation.
+------------------
+
+-------------------------------------
+Reading input data for simulation 13.
+-------------------------------------
+
+	 KINETICS 151-200
+		MINERALIZATION_LAYER_4
+		formula [ORGANIC_N] -1 [AMMONIUM] +1   	# DELTA = PRODUCT - REACTANT ( EXAMPLE: ORGANIC_N TO AMMONIUM ) 
+		NITRIFICATION_LAYER_4
+		formula [AMMONIUM] -1 [NITRATE] +1    		# DELTA = PRODUCT - REACTANT ( EXAMPLE: AMMONIUM TO NITRITE ) 
+		DENITRIFICATION_LAYER_4
+		formula [NITRATE] -1 [NITROUS_GAS] +0.5		# DELTA = PRODUCT - REACTANT ( EXAMPLE: NITRATE TO NITROGEN GAS )   
+	 END
+------------------
+End of simulation.
+------------------
+
+-------------------------------------
+Reading input data for simulation 14.
+-------------------------------------
+
+	 KINETICS 201-250
+		MINERALIZATION_LAYER_5
+		formula [ORGANIC_N] -1 [AMMONIUM] +1   	# DELTA = PRODUCT - REACTANT ( EXAMPLE: ORGANIC_N TO AMMONIUM ) 
+		NITRIFICATION_LAYER_5
+		formula [AMMONIUM] -1 [NITRATE] +1    		# DELTA = PRODUCT - REACTANT ( E

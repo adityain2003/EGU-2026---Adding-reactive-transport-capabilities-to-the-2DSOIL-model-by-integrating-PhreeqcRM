@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "2dsoil", "Soil Source\2dsoil.vfproj", "{05500875-9B63-45CA-B7D6-FD6A5240ED1A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E8E56F99-943A-4226-A0C8-24FF6419EAED} = {E8E56F99-943A-4226-A0C8-24FF6419EAED}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Crop", "Crop source\Crop.vcxproj", "{E8E56F99-943A-4226-A0C8-24FF6419EAED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05500875-9B63-45CA-B7D6-FD6A5240ED1A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{05500875-9B63-45CA-B7D6-FD6A5240ED1A}.Debug|Win32.Build.0 = Debug|Win32
+		{05500875-9B63-45CA-B7D6-FD6A5240ED1A}.Release|Win32.ActiveCfg = Release|Win32
+		{05500875-9B63-45CA-B7D6-FD6A5240ED1A}.Release|Win32.Build.0 = Release|Win32
+		{E8E56F99-943A-4226-A0C8-24FF6419EAED}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E8E56F99-943A-4226-A0C8-24FF6419EAED}.Debug|Win32.Build.0 = Debug|Win32
+		{E8E56F99-943A-4226-A0C8-24FF6419EAED}.Release|Win32.ActiveCfg = Release|Win32
+		{E8E56F99-943A-4226-A0C8-24FF6419EAED}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://ba45-001-acsl:8080/tfs/plantmodel
+		SccProjectUniqueName0 = Soil\u0020Source\\2dsoil.vfproj
+		SccProjectName0 = $/Maizsim/corn/2DSOIL\u0020for\u0020MaizSim_VS9.1
+		SccAuxPath0 = http://ba45-001-acsl:8080/tfs/plantmodel
+		SccLocalPath0 = Soil\u0020Source
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = Crop\u0020source\\Crop.vcxproj
+		SccProjectName1 = $/Maizsim/corn/MaizeSim/DLL_VS9.1
+		SccAuxPath1 = http://ba45-001-acsl:8080/tfs/plantmodel
+		SccLocalPath1 = Crop\u0020source
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FEB2D542-7789-3E02-847C-F241F48BF2E2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>PhreeqcRM</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PhreeqcRM.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PhreeqcRMd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PhreeqcRM.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PhreeqcRM</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">PhreeqcRM.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">PhreeqcRM</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">PhreeqcRM.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">PhreeqcRM</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR="Debug";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR=\"Debug\";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/Debug/PhreeqcRMd.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/Debug/PhreeqcRMd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR="Release";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR=\"Release\";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/Release/PhreeqcRM.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/Release/PhreeqcRM.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR="MinSizeRel";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR=\"MinSizeRel\";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/MinSizeRel/PhreeqcRM.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/MinSizeRel/PhreeqcRM.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR="RelWithDebInfo";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SWIG_SHARED_OBJ;USE_PHRQ_ALLOC;IPhreeqc_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WINDLL;USE_OPENMP;CMAKE_INTDIR=\"RelWithDebInfo\";PhreeqcRM_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/RelWithDebInfo/PhreeqcRM.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/RelWithDebInfo/PhreeqcRM.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master -BC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD --check-stamp-file C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GenerateExportHeader.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\exportheader.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\PhreeqcRMConfig.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\phreeqcrm.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master -BC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD --check-stamp-file C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GenerateExportHeader.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\exportheader.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\PhreeqcRMConfig.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\phreeqcrm.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master -BC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD --check-stamp-file C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GenerateExportHeader.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\exportheader.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\PhreeqcRMConfig.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\phreeqcrm.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM/phreeqcrm-master -BC:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD --check-stamp-file C:/Users/ADITYA.KAPOOR/Maizsim_PhreeqcRM/PHREEQCRM_BUILD/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindOpenMP.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\GenerateExportHeader.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.30\Modules\exportheader.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\PhreeqcRMConfig.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\phreeqcrm.cmake.in;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMI_interface_C.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMI_interface_C.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMI_interface_F.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMI_interface_F.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\bmi.hxx" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMIPhreeqcRM.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMIPhreeqcRM.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMIVariant.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\BMIVariant.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\CSelectedOutput.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\CSelectedOutput.hxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\CVar.hxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\Debug.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\ErrorReporter.hxx" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqc_interface_F.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqc_interface_F.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqc.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqc.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqc.hpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqcCallbacks.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\IPhreeqcLib.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\advection.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\basicsubs.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cl1.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\Parser.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\Parser.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\PHRQ_base.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\PHRQ_base.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\PHRQ_exports.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\PHRQ_io.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\PHRQ_io.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\phrqtype.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\Utils.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\common\Utils.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cvdense.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cvdense.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cvode.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cvode.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cxxKinetics.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cxxKinetics.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cxxMix.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\cxxMix.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\dense.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\dense.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Dictionary.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Dictionary.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\dumper.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\dumper.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Exchange.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Exchange.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ExchComp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ExchComp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\GasComp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\GasComp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\gases.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\GasPhase.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\GasPhase.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\global_structures.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\input.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\integrate.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\inverse.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ISolution.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ISolution.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ISolutionComp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ISolutionComp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\isotopes.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\kinetics.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\KineticsComp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\KineticsComp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\mainsubs.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\model.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\NA.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\NameDouble.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\NameDouble.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\NumKeyword.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\NumKeyword.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\nvector_serial.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\nvector_serial.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\nvector.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\nvector.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\parse.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PBasic.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PBasic.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\phqalloc.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\phqalloc.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Phreeqc.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Phreeqc.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords\Keywords.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PhreeqcKeywords\Keywords.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PHRQ_io_output.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\pitzer_structures.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\pitzer.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PPassemblage.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PPassemblage.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PPassemblageComp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\PPassemblageComp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\prep.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Pressure.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Pressure.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\print.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Reaction.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Reaction.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\read.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\ReadClass.cxx" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\readtr.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\runner.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\runner.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SelectedOutput.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SelectedOutput.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Serializer.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Serializer.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\sit.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\smalldense.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\smalldense.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Solution.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Solution.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SolutionIsotope.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SolutionIsotope.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\spread.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SS.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SS.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SSassemblage.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SSassemblage.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SScomp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SScomp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\step.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\StorageBin.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\StorageBin.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\StorageBinList.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\StorageBinList.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\structures.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\sundialsmath.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\sundialsmath.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\sundialstypes.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Surface.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Surface.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SurfaceCharge.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SurfaceCharge.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SurfaceComp.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\SurfaceComp.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\System.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\System.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\tally.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Temperature.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Temperature.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\tidy.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\transport.cpp" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Use.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\Use.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\UserPunch.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\UserPunch.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\phreeqcpp\utilities.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\thread.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\Var.c" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\Var.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqc\Version.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqcPhast.cxx" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqcPhast.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqcPhastLib.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IPhreeqcPhast\IPhreeqcPhastLib.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\IrmResult.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\PhreeqcRM.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\PhreeqcRM.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\RM_interface_C.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\RM_interface_C.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\RM_interface_F.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\RM_interface_F.h" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\RMVARS.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\VarManager.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\VarManager.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\YAML_interface_C.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\YAML_interface_C.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\YAML_interface_F.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\YAML_interface_F.h" />
+    <ClCompile Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\YAMLPhreeqcRM.cpp" />
+    <ClInclude Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM\phreeqcrm-master\src\YAMLPhreeqcRM.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\ADITYA.KAPOOR\Maizsim_PhreeqcRM\PHREEQCRM_BUILD\ZERO_CHECK.vcxproj">
+      <Project>{63A8A230-CCC7-3961-8684-A4C058B4CF0C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
